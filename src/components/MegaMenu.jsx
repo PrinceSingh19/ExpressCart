@@ -5,35 +5,47 @@ import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { CgChevronDown } from "react-icons/cg";
 
 const MegaMenu = () => {
-	const [mainHead, setMainHead] = useState(false);
+	const [mainHead, setMainHead] = useState("");
 	const [heading, setHeading] = useState("");
+	const [mouse, setMouse] = useState(false);
+	const handleMouseEnter = () => {
+		setMouse(true);
+	};
+	const handleMouseLeave = () => {
+		setMouse(false);
+	};
 	return (
 		<>
 			{MegaMenuLinks.map((links, i) => {
 				return (
 					<div key={i}>
-						<div className="group ">
+						<div className="group">
 							<h1
 								className={`text-lg flex items-center  font-normal font-[calibri] md:border-b-4 md:border-opacity-0 md:border-pink-600   md:hover:border-opacity-100 py-3 `}
 								onClick={() => {
-									setMainHead(!mainHead);
+									mainHead !== links.name ? setMainHead(links.name) : setMainHead("");
 									setHeading("");
 								}}
+								onMouseEnter={handleMouseEnter}
+								onMouseLeave={handleMouseLeave}
 							>
 								{links.name}
 
+								<span className="hidden md:inline group-hover:rotate-180">
+									<BiChevronDown />
+								</span>
 								<span
-									className={`pl-1 md:group-hover:rotate-180 ${
-										mainHead ? "rotate-180" : "rotate-0"
+									className={`md:hidden inline ${
+										mainHead === links.name ? "rotate-180" : "rotate-0"
 									}`}
 								>
 									<BiChevronDown />
 								</span>
 							</h1>
-							<div className="hidden md:block">
-								<div className="md:absolute  left-2 px-10 gap-8 group-hover:block hidden hover:block md:w-full md:border-b-2 md:border-slate-300 h-56 z-50">
+							<div className="hidden md:block ">
+								<div className="md:absolute left-0  gap-8 group-hover:block hidden hover:block md:w-full md:border-b-2 md:border-slate-300 h-56 z-50">
 									{links.submenu ? (
-										<div className={`flex flex-col md:flex-row  md:gap-20  py-2 `}>
+										<div className={`flex flex-col md:flex-row  md:gap-20  py-2 pl-8 `}>
 											{links.sublinks.map((mySublink, idx) => {
 												return (
 													<div key={idx}>
@@ -44,7 +56,7 @@ const MegaMenu = () => {
 														<div>
 															{mySublink.sublink.map((slink, ke) => {
 																return (
-																	<li key={ke} className={`list-none pl-4  md:block `}>
+																	<li key={ke} className={`list-none  md:pl-0  md:block `}>
 																		<Link to={slink.link}>{slink.name}</Link>
 																	</li>
 																);
@@ -93,7 +105,10 @@ const MegaMenu = () => {
 														>
 															{mySublink.sublink.map((slink, index) => {
 																return (
-																	<li key={index} className={`list-none pl-8  md:block text-base `}>
+																	<li
+																		key={index}
+																		className={`list-none pl-8  md:block md:pl-0 text-base `}
+																	>
 																		<Link to={slink.link}>{slink.name}</Link>
 																	</li>
 																);
