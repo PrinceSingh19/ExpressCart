@@ -42,8 +42,8 @@ const MegaMenu = () => {
 									<BiChevronDown />
 								</span>
 							</h1>
-							<div className="hidden md:block ">
-								<div className="md:absolute left-0  gap-8 group-hover:block hidden hover:block md:w-full md:border-b-2 md:border-slate-300 h-56 z-50">
+							<div className="hidden md:block  bg-opacity-100">
+								<div className="md:absolute left-0  gap-8 group-hover:block hidden hover:block md:w-full md:border-b-2 md:border-slate-300 h-56 z-50 md:bg-white">
 									{links.submenu ? (
 										<div className={`flex flex-col md:flex-row  md:gap-20  py-2 pl-8 `}>
 											{links.sublinks.map((mySublink, idx) => {

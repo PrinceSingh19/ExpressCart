@@ -9,6 +9,8 @@ const initialState = {
 	singleProduct: {},
 	singleLoading: true,
 	singleError: null,
+	sliderImagesLoading: true,
+	sliderImages: [],
 };
 const AppProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);

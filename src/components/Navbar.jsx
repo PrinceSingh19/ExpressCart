@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false);
 	return (
-		<nav className="bg-black md:h-14 ">
+		<nav className="bg-black ">
 			<div className="flex items-center justify-between flex-grow flex-shrink">
 				<button className="md:hidden z-50 pl-3" onClick={() => setNavOpen(!navOpen)}>
 					{navOpen ? (
@@ -36,7 +36,7 @@ const Navbar = () => {
 					<HiShoppingCart />
 				</Link>
 			</div>
-			<div className="hidden  md:flex md:justify-around md:border-b-2 md:border-slate-300  md:box-border">
+			<div className="hidden md:bg-white  md:flex md:justify-around md:border-b-2 md:border-slate-300  md:box-border">
 				<MegaMenu />
 			</div>
 
