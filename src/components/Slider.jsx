@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { imagesLink } from "./images";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useAppContext } from "../context/AppContext";
 import { motion } from "framer-motion";
