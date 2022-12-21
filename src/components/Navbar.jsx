@@ -42,7 +42,7 @@ const Navbar = () => {
 
 			{/* mobile */}
 			<div
-				className={`md:hidden pl-5 text-lg text-white  bg-slate-800  absolute w-3/4 h-full bottom-0 py-16  md:py-0 duration-300 ${
+				className={`md:hidden pl-5 text-lg text-white  bg-slate-800 z-40 absolute w-3/4 h-full bottom-0 py-16  md:py-0 duration-300 ${
 					navOpen ? "left-0" : "left-[-100%]"
 				}`}
 			>

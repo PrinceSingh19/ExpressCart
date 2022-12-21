@@ -71,7 +71,7 @@ const MegaMenu = () => {
 									)}
 								</div>
 							</div>
-							<div className="md:hidden">
+							<div className="md:hidden z-40">
 								<div className="md:absolute  left-2 px-10 gap-8 group-hover:block hidden hover:block md:w-full md:border-b-2 md:border-slate-300 h-1/3 mb-2">
 									{links.submenu ? (
 										<div
