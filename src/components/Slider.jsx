@@ -3,33 +3,54 @@ import { BsChevronLeft, BsChevronRight, BsFillCloudArrowDownFill } from "react-i
 import { useAppContext } from "../context/AppContext";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Slide from "./Slide";
+
+const Slide = ({ img }) => {
+	const [ref, inView] = useInView();
+	const controls = useAnimation();
+
+	useEffect(() => {
+		console.log("inview" + inView);
+		if (inView) {
+			controls.start("visible");
+		} else {
+			controls.start("hidden");
+		}
+	}, [controls, inView]);
+	return (
+		<motion.img
+			src={img.images[0]}
+			className="w-full object-fill"
+			ref={ref}
+			variants={{
+				visible: { opacity: 1 },
+				hidden: { opacity: 0 },
+			}}
+			transition={{ duration: 1 }}
+			animate={controls}
+			initial="hidden"
+		/>
+	);
+};
 
 const Slider = () => {
-	const [index, setIndex] = useState(0);
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const { sliderImages, sliderImagesLoading } = useAppContext();
-	console.log(sliderImages);
 	const [ref, inView] = useInView();
-	const control = useAnimation();
+	const controls = useAnimation();
 	const sliderVariants = {
 		visible: { opatcity: 1, transition: { duration: 1 } },
 		hidden: { opacity: 0 },
 	};
 	let autoScroll = true;
 	let myInterval;
-	/* const setNext = () => {
+	const setNext = () => {
 		const sliderLength = sliderImages.length;
 		currentSlide < sliderLength - 1 ? setCurrentSlide(currentSlide + 1) : setCurrentSlide(0);
-	}; */
-
-	const setNext = () => {
-		index === sliderImages.length - 1 ? setIndex(0) : setIndex(index + 1);
 	};
-	const setPrev = (index) => {
-		/* const sliderLength = sliderImages.length;
-		currentSlide === 0 ? setCurrentSlide(sliderLength - 1) : setCurrentSlide(currentSlide - 1); */
-		index === 0 ? setIndex(sliderImages.length - 1) : setIndex(index - 1);
+
+	const setPrev = () => {
+		const sliderLength = sliderImages.length;
+		currentSlide === 0 ? setCurrentSlide(sliderLength - 1) : setCurrentSlide(currentSlide - 1);
 	};
 
 	const auto = () => {
@@ -48,12 +69,11 @@ const Slider = () => {
 	}, [currentSlide]);
 
 	/* 	useEffect(() => {
+		console.log("inview" + inView);
 		if (inView) {
-			control.start("visible");
-		} else {
-			control.start("hidden");
+			controls.start("visible");
 		}
-	}, [control, inView]); */
+	}, [controls, inView]); */
 
 	return (
 		<div className="overflow-hidden w-full h-64 border-violet-800 border-t-4 border-b-4 ">
@@ -69,13 +89,11 @@ const Slider = () => {
 			>
 				<BsChevronRight className="text-4xl" />
 			</span>
-			{sliderImages.map((slider, index) => {
-				return (
-					<div key={index} className="bg-red-400">
-						<img src={slider.images[index]} className="w-full object-fill" />
-					</div>
-				);
-			})}
+			<div>
+				{sliderImages.map((slide, index) => {
+					return <div key={index}>{currentSlide === index && <Slide img={slide} />}</div>;
+				})}
+			</div>
 		</div>
 	);
 };
