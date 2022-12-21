@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../../context/AppContext";
 import Slide from "./Slide";
 
 const Slider = () => {
