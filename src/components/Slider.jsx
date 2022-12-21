@@ -35,7 +35,7 @@ const Slider = () => {
 	}, [currentSlide]);
 
 	return (
-		<div className="overflow-hidden w-full md:h-64 h-44 border-violet-800 border-t-4 border-b-4 ">
+		<div className="overflow-hidden w-full md:h-64 h-44 border-violet-800 border-t-4 border-b-4 p-2 bg-blue-600">
 			<span
 				className="absolute mt-16 md:mt-20 left-0 bg-white w-6 h-12 md:w-12 md:h-24 flex items-center rounded-tr-md rounded-br-md z-10 "
 				onClick={() => setPrev()}
