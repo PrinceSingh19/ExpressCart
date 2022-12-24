@@ -20,6 +20,10 @@ const HomeProducts = () => {
 	return (
 		<div className="w-full h-80  py-2 my-2">
 			<ProductsCategories category="Smartphone" data={smartPhones} />
+			<ProductsCategories category="Laptops" data={laptops} />
+			<ProductsCategories category="Groceries" data={groceries} />
+			<ProductsCategories category="Home-Decoration" data={homeDecoration} />
+			<ProductsCategories category="Skincare" data={skincare} />
 		</div>
 	);
 };
