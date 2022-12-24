@@ -19,7 +19,7 @@ const HomeProducts = () => {
 
 	return (
 		<div className="w-full h-80  py-2 my-2">
-			<ProductsCategories category="smartphone" data={smartPhones} />
+			<ProductsCategories category="Smartphone" data={smartPhones} />
 		</div>
 	);
 };
