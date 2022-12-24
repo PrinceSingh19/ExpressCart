@@ -3,13 +3,13 @@ import { BsStarFill } from "react-icons/bs";
 
 const Product = () => {
 	return (
-		<div className=" h-full rounded-sm  mx-2 flex flex-col border-2 border-slate-200">
+		<div className=" h-full rounded-sm  mx-2 flex flex-col border-2 border-slate-200 py-2">
 			<figure>
 				<img
 					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrut1l8qsNJ5K1noZscayzC9Q9Hk4FEgl5b2d28qhO&s"
 					className="object-cover px-4 pt-2 h-40"
 				/>
-				<figcaption className="pl-4 pt-2 text-lg font-bold font-[calibri] text-ellipsis overflow-hidden whitespace-nowrap">
+				<figcaption className="pl-4  text-lg font-bold font-[calibri] text-ellipsis overflow-hidden whitespace-nowrap">
 					Product Name
 				</figcaption>
 			</figure>

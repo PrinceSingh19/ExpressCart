@@ -11,6 +11,8 @@ const initialState = {
 	singleError: null,
 	sliderImagesLoading: true,
 	sliderImages: [],
+	uniqueCategories: [],
+	productsData: [],
 };
 const AppProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);

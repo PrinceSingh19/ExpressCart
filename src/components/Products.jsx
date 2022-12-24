@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "./Product";
 
-const Products = () => {
+const Products = ({ products }) => {
 	return (
 		<div className="">
 			<Product />

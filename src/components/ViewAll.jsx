@@ -1,12 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const ViewAll = () => {
+const ViewAll = ({ category }) => {
 	return (
-		<div className="flex flex-col justify-around bg-blue-500 items-center p-4 h-11/12">
-			<h1>Best of </h1>
-			<NavLink to="/productsList">
-				<button className="bg-blue-600 text-white rounded-sm px-2 py-1">View All</button>
+		<div className="grid grid-rows-2 gap-0 items-center justify-center border-2 border-slate-200 px-2 w-52 h-11/12">
+			<div className="flex flex-col items-center justify-center text-2xl">
+				<h1>Best of </h1>
+				<h3 className="font-semibold font-[calibri] break-words whitespace-normal break-all">
+					{category}
+				</h3>
+			</div>
+			<NavLink to="/productsList" className="flex flex-col items-center justify-center">
+				<button className="bg-blue-600 text-white rounded-sm px-2 py-1 text-xl">View All</button>
 			</NavLink>
 		</div>
 	);
