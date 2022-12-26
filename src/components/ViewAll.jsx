@@ -10,7 +10,10 @@ const ViewAll = ({ category }) => {
 					{category}
 				</h3>
 			</div>
-			<NavLink to="/productsList" className="flex flex-col items-center justify-center mb-10 pt-2">
+			<NavLink
+				to={`/productsList/${category.toLowerCase()}`}
+				className="flex flex-col items-center justify-center mb-10 pt-2"
+			>
 				<button className="bg-blue-600 text-white rounded-sm px-2 py-1 text-md md:text-xl">
 					View All
 				</button>

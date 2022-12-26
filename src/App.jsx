@@ -1,7 +1,9 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./components/Home";
 import HomeProducts from "./components/HomeProducts";
 import Navbar from "./components/navbar/Navbar";
+import ProductsList from "./components/ProductsList";
 import Slider from "./components/slider/Slider";
 
 function App() {
@@ -9,8 +11,11 @@ function App() {
 		<div className="mb-5">
 			<BrowserRouter>
 				<Navbar />
-				<Slider />
-				<HomeProducts />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/home" element={<Home />} />
+					<Route path="/productsList/:category" element={<ProductsList />} />
+				</Routes>
 			</BrowserRouter>
 		</div>
 	);

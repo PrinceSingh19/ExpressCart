@@ -13,7 +13,7 @@ const PriceFormat = ({ price }) => {
 		maximumFractionDigits: 0,
 		roundingIncrement: 5,
 	}).format(convertedPrice);
-	return <h5>{formatPrice}</h5>;
+	return <span>{formatPrice}</span>;
 };
 
 export default PriceFormat;
