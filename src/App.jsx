@@ -6,7 +6,7 @@ import Slider from "./components/slider/Slider";
 
 function App() {
 	return (
-		<div>
+		<div className="mb-5">
 			<BrowserRouter>
 				<Navbar />
 				<Slider />

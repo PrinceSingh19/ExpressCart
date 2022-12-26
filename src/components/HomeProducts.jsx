@@ -18,7 +18,7 @@ const HomeProducts = () => {
 	const skincare = category(productsData, "skincare").slice(0, 4);
 
 	return (
-		<div className="w-full h-80  py-2 my-2">
+		<div className="w-full py-2 my-2 mb-5">
 			<ProductsCategories category="Smartphone" data={smartPhones} />
 			<ProductsCategories category="Laptops" data={laptops} />
 			<ProductsCategories category="Groceries" data={groceries} />

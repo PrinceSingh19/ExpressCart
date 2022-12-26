@@ -27,6 +27,28 @@ const AppReducer = (state, { type, payload }) => {
 				loading: false,
 				error: payload,
 			};
+
+		case "EXCHANGE_RATE_LOADING":
+			return {
+				...state,
+				exchangeLoading: true,
+				exchangeError: null,
+			};
+		case "SET_EXCHANGE_RATE":
+			console.log(payload);
+			return {
+				...state,
+				exchange: payload,
+				exchangeLoading: false,
+				exchangeError: null,
+			};
+
+		case "EXCHANGE_RATE_ERROR":
+			return {
+				...state,
+				exchangeError: payload,
+				exchangeLoading: false,
+			};
 		default:
 			return state;
 	}
