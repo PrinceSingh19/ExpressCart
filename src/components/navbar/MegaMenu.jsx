@@ -18,7 +18,7 @@ const MegaMenu = () => {
 		<>
 			{MegaMenuLinks.map((links, i) => {
 				return (
-					<div key={i}>
+					<div key={i} className="">
 						<div className="group">
 							<h1
 								className={`text-lg flex items-center  font-normal font-[calibri] md:border-b-4 md:border-opacity-0 md:border-pink-600   md:hover:border-opacity-100 py-3 `}
@@ -71,7 +71,7 @@ const MegaMenu = () => {
 									)}
 								</div>
 							</div>
-							<div className="md:hidden z-40">
+							<div className="md:hidden z-30">
 								<div className="md:absolute  left-2 px-10 gap-8 group-hover:block hidden hover:block md:w-full md:border-b-2 md:border-slate-300 h-1/3 mb-2">
 									{links.submenu ? (
 										<div

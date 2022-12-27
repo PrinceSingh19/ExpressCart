@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false);
 	return (
-		<nav className="bg-black sticky top-0 w-full z-50 ">
+		<nav className="bg-black md:sticky md:top-0 w-full md:z-50 ">
 			<div className="flex items-center justify-between flex-grow flex-shrink">
 				<button className="md:hidden z-50 pl-3" onClick={() => setNavOpen(!navOpen)}>
 					{navOpen ? (
