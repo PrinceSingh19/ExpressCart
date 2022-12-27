@@ -35,15 +35,15 @@ const Slider = () => {
 	}, [currentSlide]);
 
 	return (
-		<div className="overflow-hidden w-full md:h-56 h-44 border-violet-800 border-t-4 border-b-4 p-2 bg-blue-600 ">
+		<div className="overflow-hidden w-full md:h-44 h-44 border-violet-800 border-t-4 border-b-4 p-2 bg-blue-600 ">
 			<span
-				className="absolute mt-14 md:mt-15 left-0 bg-white w-6 h-12 md:w-12 md:h-24 flex items-center rounded-tr-md rounded-br-md z-10 "
+				className="absolute mt-14 md:mt-9 left-0 bg-white w-6 h-12 md:w-8 md:h-20 flex items-center rounded-tr-md rounded-br-md z-10 "
 				onClick={() => setPrev()}
 			>
 				<BsChevronLeft className="text-4xl  " />
 			</span>
 			<span
-				className="absolute mt-14 md:mt-15 right-0 bg-white w-6 h-12 md:w-12 md:h-24 flex items-center rounded-tl-md rounded-bl-md z-10"
+				className="absolute mt-14 md:mt-9 right-0 bg-white w-6 h-12 md:w-8 md:h-20 flex items-center rounded-tl-md rounded-bl-md z-10"
 				onClick={() => setNext()}
 			>
 				<BsChevronRight className="text-4xl" />
