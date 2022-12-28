@@ -21,7 +21,7 @@ const MegaMenu = () => {
 					<div key={i} className="">
 						<div className="group">
 							<h1
-								className={`text-base flex items-center  font-normal font-[calibri] md:border-b-4 md:border-opacity-0 md:border-pink-600   md:hover:border-opacity-100 py-3 md:py-0 `}
+								className={`text-base md:text-lg cursor-pointer  flex items-center  font-normal font-[calibri] md:border-b-4 md:border-opacity-0 md:border-pink-600   md:hover:border-opacity-100 py-3 md:py-1 `}
 								onClick={() => {
 									mainHead !== links.name ? setMainHead(links.name) : setMainHead("");
 									setHeading("");
@@ -56,7 +56,10 @@ const MegaMenu = () => {
 														<div>
 															{mySublink.sublink.map((slink, ke) => {
 																return (
-																	<li key={ke} className={`list-none  md:pl-0  md:block text-sm `}>
+																	<li
+																		key={ke}
+																		className={`list-none  md:pl-0  md:block text-sm md:text-base hover:text-blue-600`}
+																	>
 																		<Link to={slink.link}>{slink.name}</Link>
 																	</li>
 																);

@@ -4,8 +4,16 @@ import { useAppContext } from "../context/AppContext";
 import PriceFormat from "./helpers/PriceFormat";
 
 const Product = ({ product }) => {
+	const { loading } = useAppContext();
+
 	return (
-		<div className="ml-2 rounded-lg   flex flex-col border-2 border-slate-200 py-2 pb-4 w-60 md:w-72">
+		<div
+			className={`${
+				loading
+					? "animate-pulse"
+					: "ml-2 rounded-lg   flex flex-col border-2 border-slate-200 py-2 pb-4 w-60 md:w-72"
+			}`}
+		>
 			<figure
 				className="w-full flex flex-col
 			justify-center items-center"
