@@ -3,12 +3,11 @@ import { useAppContext } from "../context/AppContext";
 import { useProductCatContext } from "../context/ProductCatContext";
 import ProductsCategories from "./ProductsCategories";
 
+export const category = (arr, cat) => {
+	return arr.filter((currElem) => currElem.category.includes(cat.toLowerCase()));
+};
 const HomeProducts = () => {
 	const { uniqueCategories, productsData } = useAppContext();
-
-	const category = (arr, cat) => {
-		return arr.filter((currElem) => currElem.category.includes(cat.toLowerCase()));
-	};
 
 	const smartPhones = category(productsData, "smartphones").slice(0, 4);
 	const laptops = category(productsData, "laptops").slice(0, 4);

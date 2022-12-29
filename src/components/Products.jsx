@@ -7,11 +7,11 @@ const Products = ({ products }) => {
 	const { loading, error } = useAppContext();
 
 	return (
-		<div className="flex overflow-x-scroll sm:overflow-x-hidden gap-x-1 gap-y-1 ml-1">
+		<div className="flex overflow-x-scroll  md:grid md:grid-cols-4  md:overflow-x-hidden">
 			{loading &&
 				Array(4)
 					.fill(0)
-					.map((x) => <ProductSkeleton />)}
+					.map((x, i) => <ProductSkeleton key={i} />)}
 			{products.map((x, index) => (
 				<Product product={x} key={index} />
 			))}
@@ -20,3 +20,5 @@ const Products = ({ products }) => {
 };
 
 export default Products;
+
+/* flex overflow-x-scroll md:overflow-x-hidden gap-x-1 gap-y-1 ml-1 */

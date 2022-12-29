@@ -1,11 +1,10 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Slide from "./slider/Slide";
 const ProductSkeleton = () => {
 	return (
 		<SkeletonTheme baseColor="#bfc2c2" highlightColor="#6c7070">
-			<div className="ml-2 rounded-lg flex flex-col border-2 border-slate-200 py-2 pb-4 w-40 md:w-72">
+			<div className="ml-2 rounded-lg flex flex-col border-2 border-slate-200 py-2 pb-4 w-40 md:w-60">
 				<div className="flex flex-col items-center justify-center">
 					<div className="md:block hidden">
 						<Skeleton width={200} height={140} />
