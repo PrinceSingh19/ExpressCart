@@ -9,7 +9,7 @@ const ProductsList = () => {
 	const produc = category(productsData, cate);
 
 	return (
-		<div className="mt-2 mx-2 ">
+		<div className="mt-2 mx-2  flex justify-end ml-2">
 			<Products products={produc} />
 		</div>
 	);
