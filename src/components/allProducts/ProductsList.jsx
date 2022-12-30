@@ -1,9 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useAppContext } from "../context/AppContext";
-import { category } from "./HomeProducts";
+import { useAppContext } from "../../context/AppContext";
+import { category } from "../homepage/HomeProducts";
 import ProductListDetails from "./ProductListDetails";
-import Products from "./Products";
 const ProductsList = () => {
 	const { cate } = useParams();
 	const { productsData } = useAppContext();

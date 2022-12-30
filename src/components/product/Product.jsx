@@ -1,7 +1,7 @@
 import React from "react";
 import { BsStarFill } from "react-icons/bs";
-import { useAppContext } from "../context/AppContext";
-import PriceFormat from "./helpers/PriceFormat";
+import { useAppContext } from "../../context/AppContext";
+import PriceFormat from "../helpers/PriceFormat";
 
 const Product = ({ product }) => {
 	const { loading } = useAppContext();

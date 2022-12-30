@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { useAppContext } from "../context/AppContext";
-import Product from "./Product";
-import ProductSkeleton from "./ProductSkeleton";
+import { useAppContext } from "../../context/AppContext";
+import Product from "../product/Product";
+import ProductSkeleton from "../product/ProductSkeleton";
 
 const ProductListDetails = ({ products }) => {
 	const { loading, error } = useAppContext();
