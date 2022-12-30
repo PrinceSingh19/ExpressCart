@@ -11,7 +11,7 @@ const Product = ({ product }) => {
 			className={`${
 				loading
 					? "animate-pulse"
-					: "ml-2 rounded-lg   flex flex-col border-2 border-slate-200 py-2 pb-4 w-60 "
+					: "rounded-lg   flex flex-col  border-2 border-slate-200  py-2 pb-4  "
 			}`}
 		>
 			<figure
