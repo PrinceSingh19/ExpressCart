@@ -4,7 +4,7 @@ import { BsStarFill } from "react-icons/bs";
 const Rate = ({ rating }) => {
 	return (
 		<div className="pt-2 ml-2 md:flex md:ml-0 md:items-center ">
-			<div className="flex justify-center md:flex md:justify-between items-center gap-1 bg-green-500 rounded-lg w-16  px-2 md:w-auto ">
+			<div className="flex justify-center md:flex md:justify-between items-center gap-1 bg-green-500 rounded-lg w-16 md:h-7 px-2 md:w-auto  ">
 				<span className="md:text-base text-sm font-semibold text-white ">{rating}</span>
 				<span>
 					<BsStarFill className="text-yellow-400" />
