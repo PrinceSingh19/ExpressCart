@@ -57,7 +57,6 @@ const AppReducer = (state, { type, payload }) => {
 			};
 
 		case "SET_SINGLE_PRODUCT":
-			console.log(payload);
 			return {
 				...state,
 				singleProduct: payload,

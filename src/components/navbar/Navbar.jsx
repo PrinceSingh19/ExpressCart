@@ -9,13 +9,13 @@ import { BiLogIn, BiLogInCircle, BiNotification } from "react-icons/bi";
 const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false);
 	return (
-		<div className="md:sticky md:z-50 md:top-0">
+		<div className="md:sticky md:z-50 md:top-0 w-screen">
 			{/* for md devices */}
 			<nav
-				className="bg-black sticky top-0 w-full hidden
+				className="bg-black sticky top-0  hidden
 			 md:block "
 			>
-				<div className="flex items-center justify-between flex-grow flex-shrink">
+				<div className="flex items-center justify-between">
 					<div className="w-1/4 ">
 						<img
 							src="./express.png"
