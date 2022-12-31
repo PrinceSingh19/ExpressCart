@@ -1,6 +1,5 @@
 import React from "react";
 import { useAppContext } from "../../context/AppContext";
-import { useProductCatContext } from "../../context/ProductCatContext";
 import ProductsCategories from "./ProductsCategories";
 
 export const category = (arr, cat) => {
@@ -18,7 +17,7 @@ const HomeProducts = () => {
 
 	return (
 		<div className="w-full  mb-5">
-			<ProductsCategories category="Smartphone" data={smartPhones} />
+			<ProductsCategories category="Smartphones" data={smartPhones} />
 			<ProductsCategories category="Laptops" data={laptops} />
 			<ProductsCategories category="Groceries" data={groceries} />
 			<ProductsCategories category="Home-Decoration" data={homeDecoration} />

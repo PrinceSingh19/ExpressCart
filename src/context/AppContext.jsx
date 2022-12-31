@@ -1,8 +1,9 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
+import { API } from "../components/API/API";
 import reducer from "../reducer/AppReducer";
 
 const AppContext = createContext();
-const API = "https://dummyjson.com/products";
+
 /* const CURRENCY_API = `https://api.currencyfreaks.com/latest?apikey=${
 	import.meta.env.VITE_CURRENCY_KEY
 }&symbols=PKR,GBP,EUR,INR`; */
@@ -44,7 +45,7 @@ const AppProvider = ({ children }) => {
 			const res = await fetch(url);
 			const data = await res.json();
 
-			if (!res.ok) {
+			if (!res.ok) 
 				var error = new Error("Error" + res.status + res.statusText);
 				throw error;
 			}
@@ -53,12 +54,32 @@ const AppProvider = ({ children }) => {
 			dispatch({ type: "EXCHANGE_RATE_ERROR", payload: err.message });
 		}
 	}; */
+
+	const getSingleProduct = async (url) => {
+		dispatch({ type: "SINGLE_PRODUCT_LOADING" });
+		try {
+			const res = await fetch(url);
+			const data = await res.json();
+			if (!res.ok) {
+				var error = new Error("Error" + res.status + res.statusText);
+				throw error;
+			}
+			dispatch({ type: "SET_SINGLE_PRODUCT", payload: data });
+		} catch (err) {
+			dispatch({ type: "SINGLE_PRODUCT_ERROR", payload: err.message });
+		}
+	};
+
 	useEffect(() => {
 		getProducts(API);
 		//getCurrentRate(CURRENCY_API);
 	}, []);
 
-	return <AppContext.Provider value={{ ...state, getProducts }}>{children}</AppContext.Provider>;
+	return (
+		<AppContext.Provider value={{ ...state, getProducts, getSingleProduct }}>
+			{children}
+		</AppContext.Provider>
+	);
 };
 
 const useAppContext = () => {

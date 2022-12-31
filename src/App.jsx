@@ -4,6 +4,7 @@ import Home from "./components/homepage/Home";
 import Form from "./components/navbar/Form";
 import Navbar from "./components/navbar/Navbar";
 import ProductsList from "./components/allProducts/ProductsList";
+import SingleProduct from "./components/SingleProduct";
 
 function App() {
 	return (
@@ -13,8 +14,9 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/home" element={<Home />} />
-					<Route path="/productsList/:cate" element={<ProductsList />} />
 					<Route path="/form" element={<Form />} />
+					<Route path="/productsList/:cate" element={<ProductsList />} />
+					<Route path="/singleproduct/id" element={<SingleProduct />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
