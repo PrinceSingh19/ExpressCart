@@ -69,6 +69,11 @@ const AppReducer = (state, { type, payload }) => {
 				singleLoading: false,
 				singleError: payload,
 			};
+		case "CLEAR":
+			return {
+				...state,
+				singleProduct: payload,
+			};
 		default:
 			return state;
 	}

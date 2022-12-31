@@ -34,6 +34,7 @@ const FilterReducer = (state, { type, payload }) => {
 				filter_products: filter,
 			};
  */
+
 		default:
 			return state;
 	}
