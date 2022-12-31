@@ -16,7 +16,7 @@ function App() {
 					<Route path="/home" element={<Home />} />
 					<Route path="/form" element={<Form />} />
 					<Route path="/productsList/:cate" element={<ProductsList />} />
-					<Route path="/singleproduct/id" element={<SingleProduct />} />
+					<Route path="/singleproduct/:id" element={<SingleProduct />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

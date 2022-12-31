@@ -49,6 +49,26 @@ const AppReducer = (state, { type, payload }) => {
 				exchangeError: payload,
 				exchangeLoading: false,
 			};
+
+		case "SINGLE_PRODUCT_LOADING":
+			return {
+				...state,
+				singleLoading: true,
+			};
+
+		case "SET_SINGLE_PRODUCT":
+			console.log(payload);
+			return {
+				...state,
+				singleProduct: payload,
+				singleLoading: false,
+			};
+		case "SINGLE_PRODUCT_ERROR":
+			return {
+				...state,
+				singleLoading: false,
+				singleError: payload,
+			};
 		default:
 			return state;
 	}
