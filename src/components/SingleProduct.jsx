@@ -12,6 +12,8 @@ import { TbReplace, TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineSecurity } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaGreaterThan } from "react-icons/fa";
+import SingleLoadingSkeleton from "./SingleLoadingSkeleton";
+import Skeleton from "react-loading-skeleton";
 
 const SingleProduct = () => {
 	const { id } = useParams();
@@ -26,7 +28,7 @@ const SingleProduct = () => {
 	}, [id]);
 
 	if (loading) {
-		return <p>Loading...</p>;
+		return <SingleLoadingSkeleton />;
 	}
 	return (
 		<div className=" flex flex-col md:grid md:grid-cols-2 mt-2 ">
