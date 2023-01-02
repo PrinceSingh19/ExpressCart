@@ -36,7 +36,7 @@ const Product = ({ product }) => {
 							<span className="text-sm line-through text-slate-700 font-medium">
 								<PriceFormat price={price} />
 							</span>
-							<span className="text-md font-semibold text-green-600">{`${discountPercentage.toFixed(
+							<span className="text-md font-semibold text-green-600 text-ellipsis whitespace-nowrap overflow-hidden">{`${discountPercentage.toFixed(
 								0
 							)}% off`}</span>
 						</div>

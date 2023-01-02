@@ -75,7 +75,7 @@ const SingleProduct = () => {
 			<div className="productDescription md:place-items-center  h-full ml-4 mt-2 md:mt-0 mb-11 md:mb-0 md:ml-28 flex flex-col">
 				<h1 className="text-xl">{title}</h1>
 				<div className="flex gap-3 items-center">
-					<h3 className="md:text-2xl text-base text-green-600 font-semibold pl-2 md:pl-0">
+					<h3 className="md:text-2xl text-lg text-green-600 font-semibold pl-2 md:pl-0">
 						<DiscountCalculate price={price} discountPercentage={discountPercentage} />
 					</h3>
 					<span className="text-sm md:text-lg line-through text-slate-700 font-medium">
