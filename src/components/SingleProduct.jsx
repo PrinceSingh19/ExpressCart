@@ -34,7 +34,7 @@ const SingleProduct = () => {
 		<div className=" flex flex-col md:grid md:grid-cols-2 mt-2 ">
 			<div className="imgs  md:grid md:grid-cols-12 md:place-items-center">
 				<div className="flex items-center px-2 md:px-0 gap-x-1 md:gap-x-0  md:col-span-4 md:place-items-center ">
-					<div className="flex flex-col  md:space-y-2 ">
+					<div className="flex flex-col  space-y-2 ">
 						{images?.map((img, index) => {
 							return (
 								<div

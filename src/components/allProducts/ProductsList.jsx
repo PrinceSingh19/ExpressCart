@@ -24,7 +24,7 @@ const ProductsList = () => {
 			<div className="h-9 w-full md:col-span-2">
 				<FilterSection products={filter_products} />
 			</div>
-			<div className="md:col-span-10">
+			<div className="md:col-span-10 ">
 				<ProductListDetails products={filter_products} />
 			</div>
 		</div>
