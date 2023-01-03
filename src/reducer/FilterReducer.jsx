@@ -49,8 +49,8 @@ const FilterReducer = (state, { type, payload }) => {
 		case "APPLY_FILTERS":
 			const { all_products, filter_products } = state;
 			let tempFilterProducts = [...all_products];
-			const { rating, brand, discounts } = state.filters;
-			console.log(rating);
+			const { rating, brand, discount } = state.filters;
+			console.log(discount);
 			if (brand != "all") {
 				tempFilterProducts = tempFilterProducts.filter(
 					(x) => x.brand.toLowerCase() === brand.toLowerCase()
@@ -60,6 +60,10 @@ const FilterReducer = (state, { type, payload }) => {
 			if (rating != null) {
 				tempFilterProducts = tempFilterProducts.filter((x) => x.rating >= rating);
 				console.log(tempFilterProducts);
+			}
+
+			if (discount > 0) {
+				tempFilterProducts = tempFilterProducts.filter((x) => x.discountPercentage >= discount);
 			}
 			return {
 				...state,

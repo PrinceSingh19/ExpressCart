@@ -47,7 +47,7 @@ const FilterSection = ({ products }) => {
 
 				{/* Discount */}
 				<div className="w-44">
-					<DropdownHeader arrayData={discounts} head="discountPercentage" extradata="% & above" />
+					<DropdownHeader arrayData={discounts} head="discount" extradata="% & above" />
 				</div>
 
 				{/* Price */}

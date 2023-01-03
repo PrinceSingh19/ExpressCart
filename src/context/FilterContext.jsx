@@ -11,7 +11,7 @@ const initialState = {
 		//text: "",
 		rating: null,
 		brand: "all",
-		discountPercentage: 0,
+		discount: 0,
 		price: 0,
 		minPrice: 0,
 		maxPrice: 0,

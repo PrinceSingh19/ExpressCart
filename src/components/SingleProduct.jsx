@@ -25,7 +25,7 @@ const SingleProduct = () => {
 
 	useEffect(() => {
 		getSingleProduct(`${API}/${id}`).then(() => setLoading(false));
-	}, [id]);
+	}, []);
 
 	if (loading) {
 		return <SingleLoadingSkeleton />;
@@ -72,7 +72,7 @@ const SingleProduct = () => {
 					</div>
 				</div>
 			</div>
-			<div className="productDescription md:place-items-center  h-full ml-4 mt-2 md:mt-0 mb-11 md:mb-0 md:ml-28 flex flex-col">
+			<div className="productDescription   h-full ml-4 mt-2 md:mt-0 mb-11 md:mb-0 md:ml-28 flex flex-col">
 				<h1 className="text-xl">{title}</h1>
 				<div className="flex gap-3 items-center">
 					<h3 className="md:text-2xl text-lg text-green-600 font-semibold pl-2 md:pl-0">
