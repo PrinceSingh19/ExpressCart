@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { BsFilterCircleFill, BsStarFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import Rating from "../Rating";
 import DropdownHeader from "./DropdownHeader";
 const FilterSection = ({ products }) => {
-	//const uniqueBrand
-	//const [value, setValue] = useState("All");
-
+	const navigate = useNavigate();
 	const brands = products.map((x) => x.brand);
 	const uniqueBrand = ["all", ...new Set(brands)];
 	const handleRating = (e) => {
@@ -63,8 +62,8 @@ const FilterSection = ({ products }) => {
 			</div>
 			<div className="md:hidden ">
 				<div
-					className=" text-2xl flex items-center gap-4 w-44"
-					onClick={() => console.log("object")}
+					className=" text-xl flex items-center gap-4 w-44"
+					onClick={() => navigate("/mobilefilters")}
 				>
 					Filters
 					<BsFilterCircleFill />

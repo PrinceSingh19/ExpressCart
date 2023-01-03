@@ -5,6 +5,9 @@ import Form from "./components/navbar/Form";
 import Navbar from "./components/navbar/Navbar";
 import ProductsList from "./components/allProducts/ProductsList";
 import SingleProduct from "./components/SingleProduct";
+import MobileFilters from "./components/allProducts/MobileFilters";
+import Brand from "./components/allProducts/mobileFilters/Pages/Brand";
+import FilterPage from "./components/allProducts/mobileFilters/FilterPage";
 
 function App() {
 	return (
@@ -17,6 +20,7 @@ function App() {
 					<Route path="/form" element={<Form />} />
 					<Route path="/productsList/:cate" element={<ProductsList />} />
 					<Route path="/singleproduct/:id" element={<SingleProduct />} />
+					<Route path="/filters" element={<MobileFilters />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
