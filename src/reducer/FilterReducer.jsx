@@ -37,7 +37,7 @@ const FilterReducer = (state, { type, payload }) => {
  */
 		case "UPDATE_FILTER_VALUE":
 			const { name, value } = payload;
-			//console.log(name, value);
+			console.log(name, value);
 			return {
 				...state,
 				filters: {
@@ -49,8 +49,8 @@ const FilterReducer = (state, { type, payload }) => {
 		case "APPLY_FILTERS":
 			const { all_products, filter_products } = state;
 			let tempFilterProducts = [...all_products];
-			const { rating, brand, discount } = state.filters;
-			console.log(discount);
+			const { rating, brand, discount, price } = state.filters;
+
 			if (brand != "all") {
 				tempFilterProducts = tempFilterProducts.filter(
 					(x) => x.brand.toLowerCase() === brand.toLowerCase()
@@ -64,6 +64,10 @@ const FilterReducer = (state, { type, payload }) => {
 
 			if (discount > 0) {
 				tempFilterProducts = tempFilterProducts.filter((x) => x.discountPercentage >= discount);
+			}
+
+			if (price > 0) {
+				tempFilterProducts = tempFilterProducts.filter((x) => x.price >= price);
 			}
 			return {
 				...state,

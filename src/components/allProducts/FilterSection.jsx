@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { BsFilterCircleFill, BsStarFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useFilterContext } from "../../context/FilterContext";
+import PriceFormat from "../helpers/PriceFormat";
 import Rating from "../Rating";
 import DropdownHeader from "./DropdownHeader";
 const FilterSection = ({ products }) => {
 	const navigate = useNavigate();
-	const { updateFilterValue } = useFilterContext();
-	//console.log(products);
+	const {
+		updateFilterValue,
+		filters: { minPrice, maxPrice, price },
+	} = useFilterContext();
+	//console.log(price);
 	const brands = products.map((x) => x.brand);
 	const uniqueBrand = ["all", ...new Set(brands)];
 	const handleRating = (e) => {
@@ -20,6 +24,9 @@ const FilterSection = ({ products }) => {
 
 	const ratings = range(1, 4, 1);
 	const discounts = range(10, 50, 10);
+	//const priceRange = range(1000, 10000, 2000);
+
+	const newPriceRange = [6.04, 12.1, 30.3, 60.6];
 	return (
 		<>
 			<div className=" mx-auto hidden md:block">
@@ -30,16 +37,16 @@ const FilterSection = ({ products }) => {
 				{/* Rating */}
 				<div>
 					<div className="text-base text-ellipsis whitespace-nowrap overflow-hidden w-32 font-medium">
-						Ratings
+						Rating
 					</div>
 					{ratings.map((checkbox, index) => {
 						return (
-							<form key={index} onChange={updateFilterValue} className="flex items-center my-2">
-								<input type="checkbox" name="rating" value={checkbox} />
-								<div className="flex items-center ml-2 gap-1">
+							<form key={index} onChange={updateFilterValue} className="flex items-center">
+								<input type="checkbox" name="rating" value={checkbox} id={checkbox} />
+								<label className="flex items-center ml-2 gap-1" for={checkbox}>
 									{checkbox}
 									<BsStarFill className="text-yellow-500" />& above
-								</div>
+								</label>
 							</form>
 						);
 					})}
@@ -53,14 +60,17 @@ const FilterSection = ({ products }) => {
 				{/* Price */}
 
 				<div>
-					<input
-						type="range"
-						min={0}
-						max={5000}
-						step={500}
-						name="price"
-						onChange={updateFilterValue}
-					/>
+					<div className="text-base font-medium">Price</div>
+					{newPriceRange.map((price, index) => {
+						return (
+							<form onChange={updateFilterValue} key={index}>
+								<input type="checkbox" value={price} name="price" id={price} />
+								<label className="ml-2" for={price}>
+									<PriceFormat price={price} /> and above
+								</label>
+							</form>
+						);
+					})}
 				</div>
 			</div>
 			<div className="md:hidden ">
