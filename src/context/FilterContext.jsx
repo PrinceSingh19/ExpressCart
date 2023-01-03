@@ -8,10 +8,10 @@ const initialState = {
 	filter_products: [],
 	all_products: [],
 	filters: {
-		text: "",
+		//text: "",
 		rating: null,
-		brands: "all",
-		discount: 0,
+		brand: "all",
+		discountPercentage: 0,
 		price: 0,
 		minPrice: 0,
 		maxPrice: 0,
@@ -38,8 +38,18 @@ const FilterProvider = ({ children }) => {
 	/* const getFilterProducts = (products) => {
 		dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
 	}; */
+
+	const updateFilterValue = (e) => {
+		const name = e.target.name;
+		const value = e.target.value;
+		dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
+	};
+
+	useEffect(() => {
+		dispatch({ type: "APPLY_FILTERS" });
+	}, [state.filters]);
 	return (
-		<FilterContext.Provider value={{ ...state, getFilterProducts }}>
+		<FilterContext.Provider value={{ ...state, getFilterProducts, updateFilterValue }}>
 			{children}
 		</FilterContext.Provider>
 	);

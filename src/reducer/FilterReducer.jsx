@@ -9,6 +9,7 @@ const FilterReducer = (state, { type, payload }) => {
 				loading: true,
 			};
 		case "LOAD_FILTER_PRODUCTS":
+			//console.log(payload);
 			const allPrice = payload.map((x) => x.price);
 			const maxPrice = Math.max(...allPrice);
 			return {
@@ -34,7 +35,36 @@ const FilterReducer = (state, { type, payload }) => {
 				filter_products: filter,
 			};
  */
+		case "UPDATE_FILTER_VALUE":
+			const { name, value } = payload;
+			//console.log(name, value);
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					[name]: value,
+				},
+			};
 
+		case "APPLY_FILTERS":
+			const { all_products, filter_products } = state;
+			let tempFilterProducts = [...all_products];
+			const { rating, brand, discounts } = state.filters;
+			console.log(rating);
+			if (brand != "all") {
+				tempFilterProducts = tempFilterProducts.filter(
+					(x) => x.brand.toLowerCase() === brand.toLowerCase()
+				);
+			}
+
+			if (rating != null) {
+				tempFilterProducts = tempFilterProducts.filter((x) => x.rating >= rating);
+				console.log(tempFilterProducts);
+			}
+			return {
+				...state,
+				filter_products: tempFilterProducts,
+			};
 		default:
 			return state;
 	}

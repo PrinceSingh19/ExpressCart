@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { BsFilterCircleFill, BsStarFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { useFilterContext } from "../../context/FilterContext";
 import Rating from "../Rating";
 import DropdownHeader from "./DropdownHeader";
 const FilterSection = ({ products }) => {
 	const navigate = useNavigate();
+	const { updateFilterValue } = useFilterContext();
+	//console.log(products);
 	const brands = products.map((x) => x.brand);
 	const uniqueBrand = ["all", ...new Set(brands)];
 	const handleRating = (e) => {
@@ -31,7 +34,7 @@ const FilterSection = ({ products }) => {
 					</div>
 					{ratings.map((checkbox, index) => {
 						return (
-							<form key={index} onChange={handleRating} className="flex items-center my-2">
+							<form key={index} onChange={updateFilterValue} className="flex items-center my-2">
 								<input type="checkbox" name="rating" value={checkbox} />
 								<div className="flex items-center ml-2 gap-1">
 									{checkbox}
@@ -44,7 +47,7 @@ const FilterSection = ({ products }) => {
 
 				{/* Discount */}
 				<div className="w-44">
-					<DropdownHeader arrayData={discounts} head="discounts" extradata="% & above" />
+					<DropdownHeader arrayData={discounts} head="discountPercentage" extradata="% & above" />
 				</div>
 
 				{/* Price */}
@@ -56,7 +59,7 @@ const FilterSection = ({ products }) => {
 						max={5000}
 						step={500}
 						name="price"
-						onChange={(e) => console.log(e.target.value)}
+						onChange={updateFilterValue}
 					/>
 				</div>
 			</div>

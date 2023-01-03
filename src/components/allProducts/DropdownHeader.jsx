@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { useFilterContext } from "../../context/FilterContext";
 
 const DropdownHeader = ({ arrayData, head, extradata }) => {
 	const [open, setOpen] = useState(false);
+	const { updateFilterValue } = useFilterContext();
 	const newData = extradata === undefined ? "" : extradata;
 
 	return (
@@ -24,7 +26,7 @@ const DropdownHeader = ({ arrayData, head, extradata }) => {
 									type="button"
 									name={head}
 									value={curr}
-									onClick={(e) => console.log(e.target.name)}
+									onClick={updateFilterValue}
 								>
 									{curr + " " + newData}
 								</button>
