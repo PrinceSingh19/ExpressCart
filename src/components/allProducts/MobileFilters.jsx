@@ -1,17 +1,17 @@
 import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import { NavLink, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import FilterPage from "./mobileFilters/FilterPage";
 import { filterPath } from "./mobileFilters/FilterPath";
 
 const MobileFilters = () => {
 	const navigate = useNavigate();
-	const location = useLocation();
+	/* const location = useLocation();
 	const {
 		state: { uniqueBrand, ratings, price, discounts },
 	} = location;
 
-	console.log(ratings);
+	console.log(ratings); */
 
 	return (
 		<>
@@ -23,11 +23,11 @@ const MobileFilters = () => {
 
 			<div className="grid grid-cols-6">
 				<div className="col-span-2 bg-slate-300 h-screen flex flex-col gap-y-2 text-lg ">
-					<NavLink to="/brand">Brand</NavLink>
-					<NavLink to="/rating">Rating</NavLink>
+					<NavLink to="brand">Brand</NavLink>
+					<NavLink to="rating">Rating</NavLink>
 				</div>
 				<div className="col-span-4 ">
-					<FilterPage />
+					<Outlet />
 				</div>
 			</div>
 		</>

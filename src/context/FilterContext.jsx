@@ -8,7 +8,7 @@ const initialState = {
 	filter_products: [],
 	all_products: [],
 	filters: {
-		//text: "",
+		text: "",
 		rating: null,
 		brand: "all",
 		discount: 0,
@@ -41,6 +41,7 @@ const FilterProvider = ({ children }) => {
 
 	const updateFilterValue = (e) => {
 		const name = e.target.name;
+		console.log(e);
 		const value = e.target.value;
 		dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
 	};

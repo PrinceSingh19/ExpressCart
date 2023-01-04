@@ -7,6 +7,7 @@ import ProductsList from "./components/allProducts/ProductsList";
 import SingleProduct from "./components/SingleProduct";
 import MobileFilters from "./components/allProducts/MobileFilters";
 import Brand from "./components/allProducts/mobileFilters/Pages/Brand";
+import Rating from "./components/allProducts/mobileFilters/Pages/Rating";
 import FilterPage from "./components/allProducts/mobileFilters/FilterPage";
 
 function App() {
@@ -20,7 +21,10 @@ function App() {
 					<Route path="/form" element={<Form />} />
 					<Route path="/productsList/:cate" element={<ProductsList />} />
 					<Route path="/singleproduct/:id" element={<SingleProduct />} />
-					<Route path="/filters" element={<MobileFilters />} />
+					<Route path="/filters" element={<MobileFilters />}>
+						<Route path="brand" index element={<Brand />} />
+						<Route path="rating" element={<Rating />} />
+					</Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

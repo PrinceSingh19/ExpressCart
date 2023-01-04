@@ -74,10 +74,7 @@ const FilterSection = ({ products }) => {
 				</div>
 			</div>
 			<div className="md:hidden ">
-				<div
-					className=" text-xl flex items-center gap-4 w-44"
-					onClick={() => navigate("/mobilefilters")}
-				>
+				<div className=" text-xl flex items-center gap-4 w-44" onClick={() => navigate("/filters")}>
 					Filters
 					<BsFilterCircleFill />
 				</div>

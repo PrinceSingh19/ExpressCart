@@ -49,7 +49,8 @@ const FilterReducer = (state, { type, payload }) => {
 		case "APPLY_FILTERS":
 			const { all_products, filter_products } = state;
 			let tempFilterProducts = [...all_products];
-			const { rating, brand, discount, price } = state.filters;
+			const { rating, brand, discount, price, text } = state.filters;
+			//console.log(text);
 
 			if (brand != "all") {
 				tempFilterProducts = tempFilterProducts.filter(
