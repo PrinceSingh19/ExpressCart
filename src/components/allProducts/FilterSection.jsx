@@ -5,18 +5,11 @@ import { useFilterContext } from "../../context/FilterContext";
 import PriceFormat from "../helpers/PriceFormat";
 import Rating from "../Rating";
 import DropdownHeader from "./DropdownHeader";
-const FilterSection = ({ products }) => {
+const FilterSection = ({ products, cat }) => {
 	const navigate = useNavigate();
-	const {
-		updateFilterValue,
-		filters: { minPrice, maxPrice, price },
-	} = useFilterContext();
-	//console.log(price);
+	const { updateFilterValue } = useFilterContext();
 	const brands = products.map((x) => x.brand);
 	const uniqueBrand = ["all", ...new Set(brands)];
-	const handleRating = (e) => {
-		console.log(e.target.value);
-	};
 
 	const range = (start, stop, step) => {
 		return Array.from({ length: (stop - start) / step + 1 }, (v, i) => start + i * step);
@@ -24,8 +17,6 @@ const FilterSection = ({ products }) => {
 
 	const ratings = range(1, 4, 1);
 	const discounts = range(10, 50, 10);
-	//const priceRange = range(1000, 10000, 2000);
-
 	const newPriceRange = [6.04, 12.1, 30.3, 60.6];
 	return (
 		<>
@@ -74,7 +65,10 @@ const FilterSection = ({ products }) => {
 				</div>
 			</div>
 			<div className="md:hidden ">
-				<div className=" text-xl flex items-center gap-4 w-44" onClick={() => navigate("/filters")}>
+				<div
+					className=" text-xl flex items-center gap-4 w-44"
+					onClick={() => navigate("/filters", { state: { category: cat } })}
+				>
 					Filters
 					<BsFilterCircleFill />
 				</div>

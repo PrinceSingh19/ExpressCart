@@ -6,12 +6,12 @@ import { filterPath } from "./mobileFilters/FilterPath";
 
 const MobileFilters = () => {
 	const navigate = useNavigate();
-	/* const location = useLocation();
-	const {
-		state: { uniqueBrand, ratings, price, discounts },
+	const location = useLocation();
+	/* const {
+		state: { category },
 	} = location;
 
-	console.log(ratings); */
+	console.log(category); */
 
 	return (
 		<>

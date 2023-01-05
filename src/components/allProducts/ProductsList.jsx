@@ -11,7 +11,7 @@ const ProductsList = () => {
 	const { getFilterProducts, all_products, filter_products } = useFilterContext();
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
-		getFilterProducts(`${API}/category/${cate}`).then(() => {
+		getFilterProducts(`https://dummyjson.com/products/category/${cate}`).then(() => {
 			setLoading(false);
 		});
 	}, [cate]);
@@ -23,7 +23,7 @@ const ProductsList = () => {
 	return (
 		<div className="mx-2 mt-2 mb-16 md:mb-0 grid grid-cols-1 md:grid-cols-12">
 			<div className="h-9 w-full md:col-span-2">
-				<FilterSection products={all_products} />
+				<FilterSection products={all_products} cat={cate} />
 			</div>
 			<div className="md:col-span-10 ">
 				<ProductListDetails products={filter_products} />

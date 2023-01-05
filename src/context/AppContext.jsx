@@ -70,6 +70,21 @@ const AppProvider = ({ children }) => {
 		}
 	};
 
+	const searchProduct = async (url) => {
+		dispatch({ type: "SINGLE_PRODUCT_LOADING" });
+		try {
+			const res = await fetch(url);
+			const data = await res.json();
+			if (!res.ok) {
+				var error = new Error("Error" + res.status + res.statusText);
+				throw error;
+			}
+			dispatch({ type: "SET_SINGLE_PRODUCT", payload: data });
+		} catch (err) {
+			dispatch({ type: "SINGLE_PRODUCT_ERROR", payload: err.message });
+		}
+	};
+
 	useEffect(() => {
 		getProducts(API);
 		//getCurrentRate(CURRENCY_API);

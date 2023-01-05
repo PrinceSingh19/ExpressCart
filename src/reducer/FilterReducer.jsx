@@ -37,7 +37,6 @@ const FilterReducer = (state, { type, payload }) => {
  */
 		case "UPDATE_FILTER_VALUE":
 			const { name, value } = payload;
-			console.log(name, value);
 			return {
 				...state,
 				filters: {
@@ -45,7 +44,16 @@ const FilterReducer = (state, { type, payload }) => {
 					[name]: value,
 				},
 			};
+		case "UPDATE_FORM_VALUE":
+			const { query, val } = payload;
 
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					[query]: val,
+				},
+			};
 		case "APPLY_FILTERS":
 			const { all_products, filter_products } = state;
 			let tempFilterProducts = [...all_products];
