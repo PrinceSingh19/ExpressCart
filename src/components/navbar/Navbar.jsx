@@ -4,6 +4,7 @@ import { FiAlertCircle, FiLogIn, FiMenu } from "react-icons/fi";
 import MegaMenu from "./MegaMenu";
 import { CgClose, CgHomeScreen, CgLogIn, CgNotifications } from "react-icons/cg";
 import Form from "./Form";
+import image from "../../assets/express.png";
 import { Link, NavLink } from "react-router-dom";
 import { BiLogIn, BiLogInCircle, BiNotification } from "react-icons/bi";
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
 				<div className="flex items-center justify-between">
 					<div className="w-1/4 ">
 						<img
-							src="./express.png"
+							src={image}
 							alt="Express Cart"
 							className="h-10 pl-2 flex justify-start py-1 ml-1"
 						/>
