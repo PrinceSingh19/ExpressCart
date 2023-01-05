@@ -11,7 +11,7 @@ const Form = () => {
 		const val = inputRef.current.value;
 		const query = inputRef.current.name;
 		updateFormValue(query, val);
-		navigate("/searchproducts");
+		navigate(`/searchproducts/${val}`);
 	};
 	const inputRef = useRef();
 	return (

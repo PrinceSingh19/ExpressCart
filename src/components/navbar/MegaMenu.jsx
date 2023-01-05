@@ -118,7 +118,7 @@ const MegaMenu = () => {
 																		key={index}
 																		className={`list-none pl-8  md:block md:pl-0 text-base `}
 																	>
-																		<Link to={slink.link}>{slink.name}</Link>
+																		<Link to={`/navsearch${slink.link}`}>{slink.name}</Link>
 																	</li>
 																);
 															})}

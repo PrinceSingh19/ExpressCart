@@ -22,7 +22,7 @@ const Product = ({ product }) => {
 			justify-center items-center"
 				>
 					<img src={product.images[0]} className="object-contain h-40 min-w-[10rem] px-1  " />
-					<figcaption className="md:pl-4  text-base font-bold font-[calibri] text-ellipsis overflow-hidden whitespace-nowrap">
+					<figcaption className="md:pl-4 w-40 sm:w-40 md:w-auto text-center  text-base font-bold font-[calibri] text-ellipsis overflow-hidden break-words whitespace-nowrap">
 						{title}
 					</figcaption>
 				</figure>

@@ -34,7 +34,7 @@ const FilterSection = ({ products, cat }) => {
 						return (
 							<form key={index} onChange={updateFilterValue} className="flex items-center">
 								<input type="checkbox" name="rating" value={checkbox} id={checkbox} />
-								<label className="flex items-center ml-2 gap-1" for={checkbox}>
+								<label className="flex items-center ml-2 gap-1" htmlFor={checkbox}>
 									{checkbox}
 									<BsStarFill className="text-yellow-500" />& above
 								</label>
@@ -56,7 +56,7 @@ const FilterSection = ({ products, cat }) => {
 						return (
 							<form onChange={updateFilterValue} key={index}>
 								<input type="checkbox" value={price} name="price" id={price} />
-								<label className="ml-2" for={price}>
+								<label className="ml-2" htmlFor={price}>
 									<PriceFormat price={price} /> and above
 								</label>
 							</form>

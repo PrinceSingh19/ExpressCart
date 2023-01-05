@@ -9,8 +9,8 @@ import MobileFilters from "./components/allProducts/MobileFilters";
 import Brand from "./components/allProducts/mobileFilters/Pages/Brand";
 import Rating from "./components/allProducts/mobileFilters/Pages/Rating";
 import FilterPage from "./components/allProducts/mobileFilters/FilterPage";
-import SearchProducts from "./components/SearchProducts";
-import NavSearch from "./components/NavSearch";
+import SearchProducts from "./components/search/SearchProducts";
+import NavSearch from "./components/search/NavSearch";
 
 function App() {
 	return (
@@ -27,7 +27,7 @@ function App() {
 						<Route path="brand" index element={<Brand />} />
 						<Route path="rating" element={<Rating />} />
 					</Route>
-					<Route path="/searchproducts" element={<SearchProducts />} />
+					<Route path="/searchproducts/:query" element={<SearchProducts />} />
 					<Route path="/navsearch/:name" element={<NavSearch />} />
 				</Routes>
 			</BrowserRouter>
