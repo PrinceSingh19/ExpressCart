@@ -7,7 +7,7 @@ const Products = ({ products }) => {
 	const { loading, error } = useAppContext();
 
 	return (
-		<div className="flex overflow-x-scroll w-full md:grid md:grid-cols-4 gap-x-2 gap-y-2 ml-2 md:overflow-x-hidden">
+		<div className="flex overflow-x-scroll w-full md:grid md:grid-cols-4 gap-x-2 gap-y-2 ml-2 md:overflow-x-hidden md:ml-0">
 			{loading &&
 				Array(4)
 					.fill(0)

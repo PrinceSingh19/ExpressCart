@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import { useFilterContext } from "../context/FilterContext";
+import ReturnHome from "./helpers/ReturnHome";
 import Products from "./homepage/Products";
 
 const SearchProducts = () => {
 	const { products } = useAppContext();
-	console.log(products);
 	const {
 		filters: { query },
 	} = useFilterContext();
@@ -21,13 +21,8 @@ const SearchProducts = () => {
 		return <div className="flex items-center justify-center my-20">No Products Found</div>;
 	};
 	return (
-		<div>
-			<div className="text-xl mt-1 ml-2">
-				<Link to="/home" className="text-blue-800">
-					Home
-				</Link>
-				/searched
-			</div>
+		<div className="mx-2">
+			<ReturnHome text={query} />
 			{searched.length === 0 ? <NotFound /> : ""}
 			<Products products={searched} />
 		</div>

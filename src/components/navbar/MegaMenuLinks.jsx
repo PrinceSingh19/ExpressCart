@@ -7,21 +7,21 @@ export const MegaMenuLinks = [
 				Head: "Dresses",
 				sublink: [
 					{ name: "Tops", link: "/tops" },
-					{ name: "Dresses", link: "/dresses" },
+					{ name: "Dresses", link: "/womens-dresses" },
 				],
 			},
 			{
 				Head: "Fashion",
 				sublink: [
-					{ name: "Watches", link: "/watches" },
-					{ name: "Jewellery", link: "/jewellery" },
+					{ name: "Watches", link: "/womens-watches" },
+					{ name: "Jewellery", link: "/womens-jewellery" },
 				],
 			},
 			{
 				Head: "Bags & FootWear",
 				sublink: [
-					{ name: "Bags", link: "/bags" },
-					{ name: "Shoes", link: "/shoes" },
+					{ name: "Bags", link: "/womens-bags" },
+					{ name: "Shoes", link: "/womens-shoes" },
 				],
 			},
 		],
@@ -33,18 +33,18 @@ export const MegaMenuLinks = [
 		sublinks: [
 			{
 				Head: "Top Wear",
-				sublink: [{ name: "Men-Shirts", links: "/" }],
+				sublink: [{ name: "Shirts", link: "/mens-shirts" }],
 			},
 			{
 				Head: "Accessories",
 				sublink: [
-					{ name: "Men-Watches", links: "/" },
-					{ name: "Sunglasses", links: "/" },
+					{ name: "Watches", link: "/mens-watches" },
+					{ name: "Sunglasses", link: "/sunglasses" },
 				],
 			},
 			{
 				Head: "FootWear",
-				sublink: [{ name: "Men-Shoes", links: "/" }],
+				sublink: [{ name: "Shoes", link: "/mens-shoes" }],
 			},
 		],
 	},
@@ -54,11 +54,11 @@ export const MegaMenuLinks = [
 		sublinks: [
 			{
 				Head: "Home-Decor",
-				sublink: [{ name: "Home-Decoration", link: "/" }],
+				sublink: [{ name: "Home-Decoration", link: "/home-decoration" }],
 			},
 			{
 				Head: "Groceries",
-				sublink: [{ name: "All Groceries", link: "/" }],
+				sublink: [{ name: "All Groceries", link: "/groceries" }],
 			},
 		],
 	},
@@ -68,11 +68,11 @@ export const MegaMenuLinks = [
 		sublinks: [
 			{
 				Head: "Mobiles & Accessories",
-				sublink: [{ name: "Smartphones", link: "/" }],
+				sublink: [{ name: "Smartphones", link: "/smartphones" }],
 			},
 			{
 				Head: "Desktops & PC's",
-				sublink: [{ name: "Laptops", link: "/" }],
+				sublink: [{ name: "Laptops", link: "/laptops" }],
 			},
 		],
 	},
@@ -83,16 +83,16 @@ export const MegaMenuLinks = [
 			{
 				Head: "Accessories",
 				sublink: [
-					{ name: "Women-Watches", link: "/" },
-					{ name: "Men-Watches", link: "/" },
-					{ name: "Sunglasses", link: "/" },
-					{ name: "Bags", link: "/" },
-					{ name: "Fragrances", link: "/" },
+					{ name: "Women-Watches", link: "/womens-watches" },
+					{ name: "Men-Watches", link: "/mens-watches" },
+					{ name: "Sunglasses", link: "/sunglasses" },
+					{ name: "Bags", link: "/womens-bags" },
+					{ name: "Fragrances", link: "/fragrances" },
 				],
 			},
 			{
 				Head: "Jewellery",
-				sublink: [{ name: "Women-Jewellery", link: "/" }],
+				sublink: [{ name: "Women-Jewellery", link: "/jewellery" }],
 			},
 		],
 	},
@@ -102,7 +102,7 @@ export const MegaMenuLinks = [
 		sublinks: [
 			{
 				Head: "Beauty",
-				sublink: [{ name: "Skincare", link: "/" }],
+				sublink: [{ name: "Skincare", link: "/skincare" }],
 			},
 		],
 	},

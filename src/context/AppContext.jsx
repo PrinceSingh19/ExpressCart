@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import { API } from "../components/API/API";
+import { API, PRODUCTS_API } from "../components/API/API";
 import reducer from "../reducer/AppReducer";
 
 const AppContext = createContext();
@@ -86,7 +86,7 @@ const AppProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		getProducts(API);
+		getProducts(PRODUCTS_API);
 		//getCurrentRate(CURRENCY_API);
 	}, []);
 

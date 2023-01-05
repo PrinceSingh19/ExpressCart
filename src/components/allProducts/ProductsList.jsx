@@ -11,7 +11,7 @@ const ProductsList = () => {
 	const { getFilterProducts, all_products, filter_products } = useFilterContext();
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
-		getFilterProducts(`https://dummyjson.com/products/category/${cate}`).then(() => {
+		getFilterProducts(`${API}/category/${cate}`).then(() => {
 			setLoading(false);
 		});
 	}, [cate]);
