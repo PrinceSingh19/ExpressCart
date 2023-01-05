@@ -10,6 +10,7 @@ import Brand from "./components/allProducts/mobileFilters/Pages/Brand";
 import Rating from "./components/allProducts/mobileFilters/Pages/Rating";
 import FilterPage from "./components/allProducts/mobileFilters/FilterPage";
 import SearchProducts from "./components/SearchProducts";
+import NavSearch from "./components/NavSearch";
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 						<Route path="rating" element={<Rating />} />
 					</Route>
 					<Route path="/searchproducts" element={<SearchProducts />} />
+					<Route path="/navsearch/:name" element={<NavSearch />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

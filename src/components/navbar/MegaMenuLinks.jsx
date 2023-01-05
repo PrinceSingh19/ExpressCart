@@ -6,22 +6,22 @@ export const MegaMenuLinks = [
 			{
 				Head: "Dresses",
 				sublink: [
-					{ name: "Tops", link: "/" },
-					{ name: "Dresses", link: "/" },
+					{ name: "Tops", link: "/tops" },
+					{ name: "Dresses", link: "/dresses" },
 				],
 			},
 			{
 				Head: "Fashion",
 				sublink: [
-					{ name: "Watches", link: "/" },
-					{ name: "Jewellery", link: "/" },
+					{ name: "Watches", link: "/watches" },
+					{ name: "Jewellery", link: "/jewellery" },
 				],
 			},
 			{
 				Head: "Bags & FootWear",
 				sublink: [
-					{ name: "Bags", link: "/" },
-					{ name: "Shoes", link: "/" },
+					{ name: "Bags", link: "/bags" },
+					{ name: "Shoes", link: "/shoes" },
 				],
 			},
 		],

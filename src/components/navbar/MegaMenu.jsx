@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MegaMenuLinks } from "./MegaMenuLinks";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { CgChevronDown } from "react-icons/cg";
 
 const MegaMenu = () => {
+	const navigate = useNavigate();
 	const [mainHead, setMainHead] = useState("");
 	const [heading, setHeading] = useState("");
 	const [mouse, setMouse] = useState(false);
@@ -60,7 +61,12 @@ const MegaMenu = () => {
 																		key={ke}
 																		className={`list-none  md:pl-0  md:block text-sm  hover:text-blue-600`}
 																	>
-																		<Link to={slink.link}>{slink.name}</Link>
+																		<Link
+																			to={`/navsearch${slink.link}`}
+																			//onClick={() => navigate(`/navsearch/${slink.link}`)}
+																		>
+																			{slink.name}
+																		</Link>
 																	</li>
 																);
 															})}
