@@ -14,15 +14,32 @@ import { FiShoppingCart } from "react-icons/fi";
 import { FaGreaterThan } from "react-icons/fa";
 import SingleLoadingSkeleton from "./SingleLoadingSkeleton";
 import Skeleton from "react-loading-skeleton";
+import { ToastContainer, toast } from "react-toastify";
+import { useCartContext } from "../context/CartContext";
 
 const SingleProduct = () => {
+	const [amount, setAmount] = useState(1);
 	const { id } = useParams();
 	const [loading, setLoading] = useState(true);
 	const [index, setIndex] = useState(0);
 	const { getSingleProduct, singleProduct } = useAppContext();
 	const { brand, title, images, category, description, discountPercentage, price, rating, stock } =
 		singleProduct;
-
+	const { addToCart } = useCartContext();
+	const handleCart = (title, id) => {
+		setAmount((prev) => prev + 1);
+		addToCart(id);
+		toast(`${amount} ${title} added to cart`, {
+			position: "top-right",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: false,
+			progress: undefined,
+			theme: "light",
+		});
+	};
 	useEffect(() => {
 		getSingleProduct(`${API}/${id}`).then(() => setLoading(false));
 	}, []);
@@ -59,9 +76,22 @@ const SingleProduct = () => {
 						<button
 							type="button"
 							className="flex justify-center   items-center gap-2 px-5 py-2 border-[1px] border-black rounded-md"
+							onClick={() => handleCart(title, id)}
 						>
 							<FiShoppingCart /> Add To Cart
 						</button>
+						<ToastContainer
+							position="top-right"
+							autoClose={4000}
+							hideProgressBar={false}
+							newestOnTop={false}
+							closeOnClick
+							rtl={false}
+							pauseOnFocusLoss
+							draggable
+							pauseOnHover
+							theme="light"
+						/>
 						<button
 							type="button"
 							className=" flex justify-center items-center gap-2 border-[1px] border-black rounded-md bg-orange-400 px-5 py-2"
