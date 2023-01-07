@@ -68,7 +68,6 @@ const FilterReducer = (state, { type, payload }) => {
 
 			if (rating != null) {
 				tempFilterProducts = tempFilterProducts.filter((x) => x.rating >= rating);
-				console.log(tempFilterProducts);
 			}
 
 			if (discount > 0) {
@@ -81,6 +80,20 @@ const FilterReducer = (state, { type, payload }) => {
 			return {
 				...state,
 				filter_products: tempFilterProducts,
+			};
+
+		case "CLEAR_FILTERS":
+			return {
+				...state,
+				filters: {
+					query: "",
+					rating: null,
+					brand: "all",
+					discount: 0,
+					price: 0,
+					minPrice: 0,
+					maxPrice: 0,
+				},
 			};
 		default:
 			return state;

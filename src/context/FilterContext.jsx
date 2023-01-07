@@ -49,12 +49,16 @@ const FilterProvider = ({ children }) => {
 		dispatch({ type: "UPDATE_FORM_VALUE", payload: { query, val } });
 	};
 
+	const clearFilters = () => {
+		dispatch({ type: "CLEAR_FILTERS" });
+	};
+
 	useEffect(() => {
 		dispatch({ type: "APPLY_FILTERS" });
 	}, [state.filters]);
 	return (
 		<FilterContext.Provider
-			value={{ ...state, getFilterProducts, updateFilterValue, updateFormValue }}
+			value={{ ...state, getFilterProducts, updateFilterValue, updateFormValue, clearFilters }}
 		>
 			{children}
 		</FilterContext.Provider>

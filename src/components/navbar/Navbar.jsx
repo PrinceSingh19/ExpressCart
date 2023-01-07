@@ -6,7 +6,6 @@ import { CgClose, CgHomeScreen, CgLogIn, CgNotifications } from "react-icons/cg"
 import Form from "./Form";
 import image from "../../assets/express.png";
 import { Link, NavLink } from "react-router-dom";
-import { BiLogIn, BiLogInCircle, BiNotification } from "react-icons/bi";
 const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false);
 	return (

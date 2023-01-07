@@ -7,7 +7,7 @@ import Rating from "../Rating";
 import DropdownHeader from "./DropdownHeader";
 const FilterSection = ({ products, cat }) => {
 	const navigate = useNavigate();
-	const { updateFilterValue } = useFilterContext();
+	const { updateFilterValue, clearFilters } = useFilterContext();
 	const brands = products.map((x) => x.brand);
 	const uniqueBrand = ["all", ...new Set(brands)];
 
@@ -63,6 +63,9 @@ const FilterSection = ({ products, cat }) => {
 						);
 					})}
 				</div>
+				<button className="px-4 py-2 rounded-sm bg-orange-500 mt-2" onClick={clearFilters}>
+					Clear Filters
+				</button>
 			</div>
 			<div className="md:hidden ">
 				<div
