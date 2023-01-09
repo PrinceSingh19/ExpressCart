@@ -2,9 +2,17 @@ import React from "react";
 
 const CartReducer = (state, { type, payload }) => {
 	switch (type) {
-		case "cart":
+		case "ADD_TO_CART":
+			const { title, price, stock, description } = payload;
+			console.log(title);
+			let cartProduct = {
+				title,
+				price,
+				stock,
+				description,
+			};
 			return {
-				...state,
+				cart: [...state.cart, cartProduct],
 			};
 		default:
 			return {

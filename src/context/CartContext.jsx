@@ -8,15 +8,16 @@ const initialState = {
 };
 const CartProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const addToCart = (id) => {
-		console.log(id);
+	console.log(state.cart);
+	const addToCart = (product) => {
+		dispatch({ type: "ADD_TO_CART", payload: product });
 	};
 
 	return <CartContext.Provider value={{ ...state, addToCart }}>{children}</CartContext.Provider>;
 };
 
-const useCartContext = ()=>{
-    return useContext(CartContext);
-}
+const useCartContext = () => {
+	return useContext(CartContext);
+};
 
-export {useCartContext, CartProvider}
+export { useCartContext, CartProvider };

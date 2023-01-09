@@ -19,6 +19,7 @@ import { useCartContext } from "../context/CartContext";
 
 const SingleProduct = () => {
 	const [amount, setAmount] = useState(1);
+	//const [disabled, setDisabled] = useState(false)
 	const { id } = useParams();
 	const [loading, setLoading] = useState(true);
 	const [index, setIndex] = useState(0);
@@ -26,9 +27,9 @@ const SingleProduct = () => {
 	const { brand, title, images, category, description, discountPercentage, price, rating, stock } =
 		singleProduct;
 	const { addToCart } = useCartContext();
-	const handleCart = (title, id) => {
+	const handleCart = (title, singleProduct) => {
 		setAmount((prev) => prev + 1);
-		addToCart(id);
+		addToCart(singleProduct);
 		toast(`${amount} ${title} added to cart`, {
 			position: "top-right",
 			autoClose: 3000,
@@ -40,10 +41,10 @@ const SingleProduct = () => {
 			theme: "light",
 		});
 	};
+
 	useEffect(() => {
 		getSingleProduct(`${API}/${id}`).then(() => setLoading(false));
 	}, []);
-
 	if (loading) {
 		return <SingleLoadingSkeleton />;
 	}
@@ -75,8 +76,8 @@ const SingleProduct = () => {
 					<div className="mt-8 md:mt-2 flex justify-center w-3/4 md:w-auto flex-col  md:flex-row gap-4 font-semibold">
 						<button
 							type="button"
-							className="flex justify-center   items-center gap-2 px-5 py-2 border-[1px] border-black rounded-md"
-							onClick={() => handleCart(title, id)}
+							className="flex disabled:opacity-60 justify-center   items-center gap-2 px-5 py-2 border-[1px] border-black rounded-md"
+							onClick={() => handleCart(title, singleProduct)}
 						>
 							<FiShoppingCart /> Add To Cart
 						</button>
