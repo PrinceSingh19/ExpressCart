@@ -27,6 +27,7 @@ const SingleProduct = () => {
 	const { brand, title, images, category, description, discountPercentage, price, rating, stock } =
 		singleProduct;
 	const { addToCart } = useCartContext();
+	//console.log(sing);
 	const handleCart = (title, singleProduct) => {
 		setAmount((prev) => prev + 1);
 		addToCart(singleProduct);
