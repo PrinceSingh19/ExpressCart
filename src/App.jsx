@@ -11,7 +11,7 @@ import Rating from "./components/allProducts/mobileFilters/Pages/Rating";
 import FilterPage from "./components/allProducts/mobileFilters/FilterPage";
 import SearchProducts from "./components/search/SearchProducts";
 import NavSearch from "./components/search/NavSearch";
-import Cart from "./components/Cart";
+import Cart from "./components/cart/Cart";
 
 function App() {
 	return (

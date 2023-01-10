@@ -80,7 +80,7 @@ const Navbar = () => {
 					<NavLink to="/">
 						<CgNotifications />
 					</NavLink>
-					<NavLink to="/" className=" ">
+					<NavLink to="/cart" className=" ">
 						<HiShoppingCart />
 					</NavLink>
 				</div>

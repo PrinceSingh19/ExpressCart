@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { BsTruck } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import { API } from "./API/API";
 import DiscountCalculate from "./helpers/DiscountCalculate";
 import PriceFormat from "./helpers/PriceFormat";
-import PriceComponent from "./product/PriceComponent";
 import Rate from "./product/Rate";
-import Rating from "./Rating";
 import { TbReplace, TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineSecurity } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaGreaterThan } from "react-icons/fa";
 import SingleLoadingSkeleton from "./SingleLoadingSkeleton";
-import Skeleton from "react-loading-skeleton";
 import { ToastContainer, toast } from "react-toastify";
 import { useCartContext } from "../context/CartContext";
 
