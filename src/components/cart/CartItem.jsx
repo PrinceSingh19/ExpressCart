@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCartContext } from "../../context/CartContext";
 import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
 import PriceFormat from "../helpers/PriceFormat";
@@ -6,7 +6,8 @@ import DiscountCalculate from "../helpers/DiscountCalculate";
 import { MdDelete } from "react-icons/md";
 
 const CartItem = () => {
-	const { cart, removeCart } = useCartContext();
+	const { cart, removeCart, setIncrease, setDecrease } = useCartContext();
+	console.log(cart);
 
 	return (
 		<div className=" border-2">
@@ -19,11 +20,11 @@ const CartItem = () => {
 						<div className="col-span-3 pl-2 md:pl-0">
 							<img src={cart.images[0]} alt={cart.title} className="w-24 h-24 object-cover" />
 							<div className="space-x-3 flex justify-center">
-								<button>
+								<button onClick={() => setDecrease(cart.id)}>
 									<AiFillMinusSquare className="text-2xl" />
 								</button>
-								<span className="text-xl">1</span>
-								<button>
+								<span className="text-xl">{cart.amount}</span>
+								<button onClick={() => setIncrease(cart.id)}>
 									<AiFillPlusSquare className="text-2xl" />
 								</button>
 							</div>

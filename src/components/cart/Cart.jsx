@@ -8,7 +8,6 @@ const Cart = () => {
 	const { cart } = useCartContext();
 	const navigate = useNavigate();
 
-	console.log(cart);
 	return (
 		<div className="grid grid-cols-1  md:grid-cols-12 bg-custome-slate h-[100vh] px-2 md:px-20 gap-4">
 			<div className="col-span-8 bg-white mt-2   ">

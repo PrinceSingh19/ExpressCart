@@ -50,7 +50,7 @@ const MegaMenu = () => {
 											{links.sublinks.map((mySublink, idx) => {
 												return (
 													<div key={idx}>
-														<h1 className="text-sm font-semibold md:text-pink-600 ">
+														<h1 className="text-sm md:text-base font-semibold md:text-pink-600 ">
 															{mySublink.Head}
 														</h1>
 
@@ -59,7 +59,7 @@ const MegaMenu = () => {
 																return (
 																	<li
 																		key={ke}
-																		className={`list-none  md:pl-0  md:block text-sm  hover:text-blue-600`}
+																		className={`list-none  md:pl-0  md:block text-sm md:text-base  hover:text-blue-600`}
 																	>
 																		<Link
 																			to={`/navsearch${slink.link}`}

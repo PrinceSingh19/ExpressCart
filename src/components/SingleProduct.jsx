@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import { API } from "./API/API";
 import DiscountCalculate from "./helpers/DiscountCalculate";
@@ -15,7 +15,6 @@ import { useCartContext } from "../context/CartContext";
 
 const SingleProduct = () => {
 	const [amount, setAmount] = useState(1);
-	//const [disabled, setDisabled] = useState(false)
 	const { id } = useParams();
 	const [loading, setLoading] = useState(true);
 	const [index, setIndex] = useState(0);
@@ -23,7 +22,7 @@ const SingleProduct = () => {
 	const { brand, title, images, category, description, discountPercentage, price, rating, stock } =
 		singleProduct;
 	const { addToCart } = useCartContext();
-	//console.log(sing);
+	const navigate = useNavigate();
 	const handleCart = (title, singleProduct) => {
 		setAmount((prev) => prev + 1);
 		addToCart(singleProduct);
@@ -37,6 +36,9 @@ const SingleProduct = () => {
 			progress: undefined,
 			theme: "light",
 		});
+		setTimeout(() => {
+			navigate("/cart");
+		}, 2000);
 	};
 
 	useEffect(() => {
