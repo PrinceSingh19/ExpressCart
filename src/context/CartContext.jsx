@@ -15,6 +15,7 @@ const initialState = {
 	cartError: null,
 	totalPrice: 0,
 	totalAmount: 0,
+	deliveryFee: 6.12,
 };
 const CartProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
