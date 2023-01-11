@@ -20,6 +20,7 @@ const initialState = {
 const FilterProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { products } = useAppContext();
+	console.log(state.filters);
 	const getFilterProducts = async (url) => {
 		dispatch({ type: "FILTERS_LOADING" });
 		try {
@@ -42,6 +43,7 @@ const FilterProvider = ({ children }) => {
 	const updateFilterValue = (e) => {
 		const name = e.target.name;
 		const value = e.target.value;
+		console.log(name, value);
 		dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
 	};
 

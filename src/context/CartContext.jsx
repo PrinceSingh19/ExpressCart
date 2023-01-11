@@ -19,7 +19,6 @@ const initialState = {
 };
 const CartProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	console.log(state.totalAmount);
 	const addToCart = (product) => {
 		dispatch({ type: "ADD_TO_CART", payload: product });
 	};

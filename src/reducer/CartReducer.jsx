@@ -108,7 +108,6 @@ const CartReducer = (state, { type, payload }) => {
 				},
 				{ totalPrice: 0, totalAmount: 0 }
 			);
-			console.log(totalPrice);
 			return {
 				...state,
 				totalAmount,
