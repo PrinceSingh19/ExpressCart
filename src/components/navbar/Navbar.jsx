@@ -6,8 +6,10 @@ import { CgClose, CgHomeScreen, CgLogIn, CgNotifications } from "react-icons/cg"
 import Form from "./Form";
 import image from "../../assets/express.png";
 import { Link, NavLink } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
 const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false);
+	const { totalAmount } = useCartContext();
 	return (
 		<div className="md:sticky md:z-50 md:top-0 w-screen">
 			{/* for md devices */}
@@ -31,8 +33,9 @@ const Navbar = () => {
 						<Link to="/">About</Link>
 						<Link to="/">Login</Link>
 					</div>
-					<Link to="/cart" className="text-white mr-8 text-2xl">
+					<Link to="/cart" className="text-white flex mr-8 text-2xl">
 						<HiShoppingCart />
+						<span className="text-white text-sm absolute top-1 right-6">{totalAmount}</span>
 					</Link>
 				</div>
 				<div className=" bg-white flex justify-around border-b-2 border-slate-300 box-border">
@@ -80,8 +83,9 @@ const Navbar = () => {
 					<NavLink to="/">
 						<CgNotifications />
 					</NavLink>
-					<NavLink to="/cart" className=" ">
+					<NavLink to="/cart" className="flex ">
 						<HiShoppingCart />
+						<span className="text-sm absolute top-1 ml-6">{totalAmount}</span>
 					</NavLink>
 				</div>
 			</nav>
