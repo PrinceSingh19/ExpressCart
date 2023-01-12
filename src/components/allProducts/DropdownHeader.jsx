@@ -10,7 +10,7 @@ const DropdownHeader = ({ arrayData, head, extradata }) => {
 	return (
 		<>
 			<div
-				className="text-base  flex justify-between items-center text-ellipsis whitespace-nowrap overflow-hidden w-32 font-medium"
+				className="text-base flex justify-between items-center text-ellipsis whitespace-nowrap overflow-hidden  md:w-32 font-medium"
 				onClick={() => setOpen(!open)}
 			>
 				<span className="capitalize">{head}</span>

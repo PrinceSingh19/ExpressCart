@@ -22,7 +22,7 @@ const ProductsList = () => {
 	}
 	return (
 		<div className="mx-2 mt-2 mb-16 md:mb-0 grid grid-cols-1 md:grid-cols-12">
-			<div className="h-9 w-full md:col-span-2">
+			<div className="md:h-9 w-full md:col-span-2">
 				<FilterSection cat={cate} />
 			</div>
 			<div className="md:col-span-10 ">
