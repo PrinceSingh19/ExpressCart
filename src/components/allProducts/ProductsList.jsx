@@ -9,6 +9,7 @@ import ProductListSkeleton from "./ProductListSkeleton";
 const ProductsList = () => {
 	const { cate } = useParams();
 	const { getFilterProducts, all_products, filter_products } = useFilterContext();
+	console.log(filter_products);
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		getFilterProducts(`${API}/category/${cate}`).then(() => {

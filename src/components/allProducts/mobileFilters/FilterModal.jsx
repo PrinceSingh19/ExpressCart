@@ -9,7 +9,7 @@ export default function FilterModal({ name, data, discount, price }) {
 	return (
 		<>
 			<button
-				className="text-base border-2 rounded-md px-2 capitalize flex items-center gap-4 outline-none focus:outline-none ease-linear transition-all duration-150"
+				className="text-sm border-2 rounded-sm px-1 capitalize flex items-center gap-4 outline-none focus:outline-none ease-linear transition-all duration-150"
 				type="button"
 				onClick={() => setShowModal(true)}
 			>

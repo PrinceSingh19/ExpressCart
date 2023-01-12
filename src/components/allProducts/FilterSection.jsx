@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { BsStarFill } from "react-icons/bs";
+import { AiOutlineSortAscending, AiOutlineSortDescending } from "react-icons/ai";
+import { BsSortNumericDown, BsSortNumericUp, BsStarFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useFilterContext } from "../../context/FilterContext";
 import { allBrands, discounts, newPriceRange, ratings } from "../helpers/Filters";
@@ -9,7 +10,7 @@ import FilterModal from "./mobileFilters/FilterModal";
 
 const FilterSection = ({ cat }) => {
 	const navigate = useNavigate();
-	const { updateFilterValue, clearFilters, all_products } = useFilterContext();
+	const { updateFilterValue, clearFilters, all_products, sortProductsValue } = useFilterContext();
 	const uniqueBrand = allBrands(all_products);
 	//const uniqueBrand = ["all", ...new Set(brands)];
 
@@ -68,13 +69,51 @@ const FilterSection = ({ cat }) => {
 					Clear Filters
 				</button>
 			</div>
-			<div className="md:hidden flex flex-wrap items-center gap-4 ">
+			<div className="md:hidden flex flex-wrap items-center gap-1 ">
+				<div>Filters</div>
 				<FilterModal name="brand" data={uniqueBrand} />
 				<FilterModal name="rating" data={ratings} />
 				<FilterModal name="discount" discount={discounts} />
 				<FilterModal name="price" price={newPriceRange} />
+				<button className="text-sm border-2 rounded-sm px-1" onClick={clearFilters}>
+					Clear Filters
+				</button>
 			</div>
-			<button className="md:hidden">clear</button>
+			<div className="md:hidden flex items-center gap-1 mt-1 mb-1">
+				<div>Sort</div>
+				<button
+					className="px-2 text-sm border-2 ml-3 rounded-sm"
+					name="sort"
+					value="lowest"
+					onClick={sortProductsValue}
+				>
+					Lowest
+				</button>
+				<button
+					className="px-2 text-sm border-2 rounded-sm"
+					name="sort"
+					value="highest"
+					onClick={sortProductsValue}
+				>
+					Highest
+				</button>
+				<button
+					className="px-2 text-sm border-2 rounded-sm"
+					name="sort"
+					value="a-z"
+					onClick={sortProductsValue}
+				>
+					A-Z
+				</button>
+				<button
+					className="px-2 text-sm border-2 rounded-sm"
+					name="sort"
+					value="z-a"
+					onClick={sortProductsValue}
+				>
+					Z-A
+				</button>
+			</div>
 		</>
 	);
 };

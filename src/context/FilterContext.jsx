@@ -7,6 +7,8 @@ const initialState = {
 	error: null,
 	filter_products: [],
 	all_products: [],
+	sort_products: [],
+	sort: "",
 	filters: {
 		query: "",
 		rating: null,
@@ -20,7 +22,7 @@ const initialState = {
 const FilterProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { products } = useAppContext();
-	console.log(state.filters);
+	console.log(state.sort);
 	const getFilterProducts = async (url) => {
 		dispatch({ type: "FILTERS_LOADING" });
 		try {
@@ -43,7 +45,6 @@ const FilterProvider = ({ children }) => {
 	const updateFilterValue = (e) => {
 		const name = e.target.name;
 		const value = e.target.value;
-		console.log(name, value);
 		dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
 	};
 
@@ -55,12 +56,23 @@ const FilterProvider = ({ children }) => {
 		dispatch({ type: "CLEAR_FILTERS" });
 	};
 
+	const sortProductsValue = (e) => {
+		dispatch({ type: "GET_SORT_VALUE", payload: e.target.value });
+	};
 	useEffect(() => {
+		dispatch({ type: "SORT_PRODUCTS" });
 		dispatch({ type: "APPLY_FILTERS" });
-	}, [state.filters]);
+	}, [state.filters, state.sort]);
 	return (
 		<FilterContext.Provider
-			value={{ ...state, getFilterProducts, updateFilterValue, updateFormValue, clearFilters }}
+			value={{
+				...state,
+				getFilterProducts,
+				updateFilterValue,
+				updateFormValue,
+				clearFilters,
+				sortProductsValue,
+			}}
 		>
 			{children}
 		</FilterContext.Provider>
