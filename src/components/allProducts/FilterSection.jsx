@@ -69,7 +69,7 @@ const FilterSection = ({ cat }) => {
 					Clear Filters
 				</button>
 			</div>
-			<div className="md:hidden flex flex-wrap items-center gap-1 ">
+			<div className="md:hidden flex flex-wrap items-center gap-1 mb-2 ">
 				<div>Filters</div>
 				<FilterModal name="brand" data={uniqueBrand} />
 				<FilterModal name="rating" data={ratings} />
@@ -79,7 +79,7 @@ const FilterSection = ({ cat }) => {
 					Clear Filters
 				</button>
 			</div>
-			<div className="md:hidden flex items-center gap-1 mt-1 mb-1">
+			{/* <div className="md:hidden flex items-center gap-1 mt-1 mb-1">
 				<div>Sort</div>
 				<button
 					className="px-2 text-sm border-2 ml-3 rounded-sm"
@@ -113,7 +113,7 @@ const FilterSection = ({ cat }) => {
 				>
 					Z-A
 				</button>
-			</div>
+			</div> */}
 		</>
 	);
 };
