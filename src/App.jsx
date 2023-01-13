@@ -9,10 +9,12 @@ import SearchProducts from "./components/search/SearchProducts";
 import NavSearch from "./components/search/NavSearch";
 import Cart from "./components/cart/Cart";
 import AboutUs from "./components/AboutUs";
+import Footer from "./components/Footer";
+import ContactUs from "./components/ContactUs";
 
 function App() {
 	return (
-		<div className="mb-5">
+		<div>
 			<BrowserRouter>
 				<Navbar />
 				<Routes>
@@ -25,7 +27,9 @@ function App() {
 					<Route path="/searchproducts/:query" element={<SearchProducts />} />
 					<Route path="/navsearch/:name" element={<NavSearch />} />
 					<Route path="/cart" element={<Cart />} />
+					<Route path="/contact" element={<ContactUs />} />
 				</Routes>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);

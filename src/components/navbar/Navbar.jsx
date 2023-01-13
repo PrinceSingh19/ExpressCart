@@ -5,9 +5,10 @@ import MegaMenu from "./MegaMenu";
 import { CgClose, CgHomeScreen, CgLogIn, CgNotifications } from "react-icons/cg";
 import Form from "./Form";
 import image from "../../assets/express.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 const Navbar = () => {
+	const navigate = useNavigate();
 	const [navOpen, setNavOpen] = useState(false);
 	const { totalAmount } = useCartContext();
 	return (
@@ -18,7 +19,7 @@ const Navbar = () => {
 			 md:block "
 			>
 				<div className="flex items-center justify-between">
-					<div className="w-1/4 ">
+					<div className="w-1/4 hover:cursor-pointer" onClick={() => navigate("/home")}>
 						<img
 							src={image}
 							alt="Express Cart"

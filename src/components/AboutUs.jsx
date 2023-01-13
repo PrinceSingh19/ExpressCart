@@ -22,7 +22,7 @@ const AboutUs = () => {
 				<h3>Who Are We</h3>
 				<h3 className="font-semibold text-lg">Welcome To ExpressCart</h3>
 			</div>
-			<div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-4 md:gap-14 md:mx-4 mt-6">
+			<div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-4 md:gap-14  mt-6">
 				<p className="w-11/12 md:w-3/4 font-[poppins] text-justify">
 					ExpressCart is a shopping platform which provides you quality products at affordable
 					prices. We are committed to provide you the best online shopping experience you ever had.
