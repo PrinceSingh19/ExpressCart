@@ -105,11 +105,11 @@ const FilterReducer = (state, { type, payload }) => {
 			};
 
 			let filtered = temp.sort(sortProducts);
-			//let newPr = filtered.map((x) => x.price);
-			console.log(filtered);
+			console.log(filtered); //here I am getting the products in sorted order
 			return {
 				...state,
-				filter_products: filtered,
+				filter_products: filtered, //here I am assigning the sorted array to
+				// filtered_products and using filtered_products to display in ProductList Component
 			};
 
 		case "CLEAR_FILTERS":
