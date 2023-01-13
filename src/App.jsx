@@ -8,6 +8,7 @@ import SingleProduct from "./components/SingleProduct";
 import SearchProducts from "./components/search/SearchProducts";
 import NavSearch from "./components/search/NavSearch";
 import Cart from "./components/cart/Cart";
+import AboutUs from "./components/AboutUs";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/home" element={<Home />} />
+					<Route path="/about" element={<AboutUs />} />
 					<Route path="/form" element={<Form />} />
 					<Route path="/productsList/:cate" element={<ProductsList />} />
 					<Route path="/singleproduct/:id" element={<SingleProduct />} />
