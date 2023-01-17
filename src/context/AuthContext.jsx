@@ -1,26 +1,17 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
 	createUserWithEmailAndPassword,
-	getAuth,
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
 	updateProfile,
 } from "firebase/auth";
 import { auth } from "../auth/Firebase";
-import { async } from "@firebase/util";
 
 const AuthContext = createContext();
 
-/* const getLocalData = () => {
-	const item = localStorage.getItem("cartItem");
-	const parsedData = JSON.parse(item);
-	if (!Array.isArray(parsedData)) return [];
-	return parsedData;
-}; */
-
 const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
-	//console.log(user);
+	console.log(user);
 
 	const handleSignup = async (values) => {
 		const { username, email, password } = values;
@@ -54,12 +45,12 @@ const AuthProvider = ({ children }) => {
 			if (user) {
 				setUser(user);
 			} else {
-				console.log("signed out");
+				setUser(null);
 			}
 		});
 		console.log(unsubscribe);
 		return unsubscribe;
-	}, []);
+	}, [user]);
 
 	return (
 		<AuthContext.Provider value={{ user, handleSignup, handleLogin }}>

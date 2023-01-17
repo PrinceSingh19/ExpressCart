@@ -24,34 +24,16 @@ const Login = () => {
 				setLoading(true);
 				const response = await signInWithEmailAndPassword(auth, email, password);
 				if (response) {
-					toast.success("Logged in successfully", {
-						position: "top-center",
-						autoClose: 2000,
-						hideProgressBar: false,
-						closeOnClick: true,
-						pauseOnHover: true,
-						draggable: false,
-						progress: undefined,
-						theme: "light",
-					});
+					toast.success("Logged in successfully");
 
 					setTimeout(() => {
 						navigate("/home");
-					}, 2000);
+					}, 1000);
 				}
 			} catch (err) {
 				setLoading(false);
 				console.log(err);
-				toast.error("Please enter correct details", {
-					position: "top-center",
-					autoClose: 2000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: false,
-					progress: undefined,
-					theme: "light",
-				});
+				toast.error("Please enter correct details");
 			} finally {
 				setLoading(false);
 			}
@@ -59,7 +41,18 @@ const Login = () => {
 	});
 	return (
 		<>
-			<ToastContainer />
+			<ToastContainer
+				position="top-center"
+				autoClose={2000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable={false}
+				pauseOnHover
+				theme="light"
+			/>
 			<div className="w-3/4 grid grid-cols-1 md:grid-cols-2 z-10 border-2 h-1/2 mx-auto mt-20  shadow-lg rounded-md">
 				<div className="bg-login object-cover w-full hidden md:block"></div>
 				<form onSubmit={formik.handleSubmit} className="flex flex-col items-center gap-y-4  p-5">
@@ -112,24 +105,10 @@ const Login = () => {
 						number
 					</small>
 
-					{/* 	<button
-						type="submit"
-						className=" bg-emerald-600 mt-3 text-white font-medium w-1/2 rounded-2xl  py-1"
-					>
-						Submit
-					</button> */}
-					{/* <button
-						type="submit"
-						class="bg-indigo-500 text-white font-medium w-1/2 rounded-2xl  py-1"
-						disabled={loading}
-					>
-						<svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
-						Login
-					</button> */}
 					<button
 						disabled={loading}
 						type="submit"
-						class="text-white bg-emerald-600 mt-3  hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium w-1/2 rounded-2xl text-xl py-1 text-center flex items-center justify-center"
+						className="text-white bg-emerald-600 mt-3  hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium w-1/2 rounded-2xl text-xl py-1 text-center flex items-center justify-center"
 					>
 						{loading && (
 							<svg
