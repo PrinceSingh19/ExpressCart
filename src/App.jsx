@@ -11,6 +11,7 @@ import Cart from "./components/cart/Cart";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import ContactUs from "./components/ContactUs";
+import SignUP from "./components/SignUp";
 
 function App() {
 	return (
@@ -28,6 +29,7 @@ function App() {
 					<Route path="/navsearch/:name" element={<NavSearch />} />
 					<Route path="/cart" element={<Cart />} />
 					<Route path="/contact" element={<ContactUs />} />
+					<Route path="/signup" element={<SignUP />} />
 				</Routes>
 				<Footer />
 			</BrowserRouter>

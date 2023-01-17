@@ -6,6 +6,9 @@ module.exports = {
 			colors: {
 				"custome-slate": "#f8f9f9",
 			},
+			backgroundImage: {
+				login: "url('/login.jpg')",
+			},
 		},
 	},
 	plugins: [],
