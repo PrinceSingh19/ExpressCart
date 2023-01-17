@@ -105,7 +105,6 @@ const FilterReducer = (state, { type, payload }) => {
 			};
 
 			let filtered = temp.sort(sortProducts);
-			console.log(filtered); //here I am getting the products in sorted order
 			return {
 				...state,
 				filter_products: filtered, //here I am assigning the sorted array to

@@ -22,7 +22,6 @@ const initialState = {
 const FilterProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { products } = useAppContext();
-	console.log(state.sort);
 	const getFilterProducts = async (url) => {
 		dispatch({ type: "FILTERS_LOADING" });
 		try {

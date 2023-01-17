@@ -3,7 +3,11 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
+import { useAuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router";
 const SignUP = () => {
+	const { handleSignup } = useAuthContext();
+	const navigate = useNavigate();
 	const formik = useFormik({
 		initialValues: {
 			username: "",
@@ -11,7 +15,8 @@ const SignUP = () => {
 			password: "",
 		},
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
+			handleSignup(values);
+			navigate("/home");
 		},
 	});
 	return (
@@ -43,6 +48,7 @@ const SignUP = () => {
 						className="border-b-4 border-emerald-600 focus:outline-none outline-none pl-2 col-span-4 text-black rounded-sm  "
 						onChange={formik.handleChange}
 						value={formik.values.username}
+						autoComplete="off"
 					/>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-6 gap-x-4">
@@ -57,6 +63,7 @@ const SignUP = () => {
 						className="border-b-4 border-emerald-600 focus:outline-none outline-none pl-2 col-span-4 text-black rounded-sm  "
 						onChange={formik.handleChange}
 						value={formik.values.email}
+						autoComplete="off"
 					/>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-6 gap-x-4">
@@ -71,6 +78,7 @@ const SignUP = () => {
 						className="border-b-4 border-emerald-600 focus:outline-none outline-none pl-2 col-span-4 text-black rounded-sm  "
 						onChange={formik.handleChange}
 						value={formik.values.password}
+						autoComplete="off"
 					/>
 				</div>
 				<small className="md:w-2/3">

@@ -6,15 +6,18 @@ import { FilterProvider } from "./context/FilterContext";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 import { CartProvider } from "./context/CartContext";
+import { AuthProvider } from "./context/AuthContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		<AppProvider>
-			<FilterProvider>
-				<CartProvider>
-					<App />
-				</CartProvider>
-			</FilterProvider>
-		</AppProvider>
+		<AuthProvider>
+			<AppProvider>
+				<FilterProvider>
+					<CartProvider>
+						<App />
+					</CartProvider>
+				</FilterProvider>
+			</AppProvider>
+		</AuthProvider>
 	</React.StrictMode>
 );

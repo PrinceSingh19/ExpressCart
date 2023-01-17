@@ -33,6 +33,7 @@ const Navbar = () => {
 					<div className="text-white font-semibold flex text-base w-1/4 ml-2 justify-evenly  ">
 						<Link to="/about">About</Link>
 						<Link to="/signup">Signup</Link>
+						<Link to="/login">Login</Link>
 					</div>
 					<Link to="/cart" className="text-white flex mr-8 text-2xl">
 						<HiShoppingCart />

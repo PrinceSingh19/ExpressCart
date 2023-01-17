@@ -12,6 +12,7 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import ContactUs from "./components/ContactUs";
 import SignUP from "./components/SignUp";
+import Login from "./components/Login";
 
 function App() {
 	return (
@@ -30,6 +31,7 @@ function App() {
 					<Route path="/cart" element={<Cart />} />
 					<Route path="/contact" element={<ContactUs />} />
 					<Route path="/signup" element={<SignUP />} />
+					<Route path="/login" element={<Login />} />
 				</Routes>
 				<Footer />
 			</BrowserRouter>
