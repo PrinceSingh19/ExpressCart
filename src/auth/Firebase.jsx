@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,4 +21,50 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();
+export const handleGoogle = () => {
+	signInWithPopup(auth, provider)
+		.then((result) => {
+			// This gives you a Google Access Token. You can use it to access the Google API.
+			const credential = GoogleAuthProvider.credentialFromResult(result);
+			const token = credential.accessToken;
+			// The signed-in user info.
+			const user = result.user;
+
+			// ...
+		})
+		.catch((error) => {
+			// Handle Errors here.
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			console.log(errorMessage);
+
+			/* // The email of the user's account used.
+			const email = error.customData.email;
+			// The AuthCredential type that was used.
+			const credential = GoogleAuthProvider.credentialFromError(error); */
+			// ...
+		});
+};
+/*  signInWithPopup(auth, provider)
+	.then((result) => {
+		// This gives you a Google Access Token. You can use it to access the Google API.
+		const credential = GoogleAuthProvider.credentialFromResult(result);
+		const token = credential.accessToken;
+		// The signed-in user info.
+		const user = result.user;
+		console.log(user);
+		// ...
+	})
+	.catch((error) => {
+		// Handle Errors here.
+		const errorCode = error.code;
+		const errorMessage = error.message;
+		// The email of the user's account used.
+		const email = error.customData.email;
+		// The AuthCredential type that was used.
+		const credential = GoogleAuthProvider.credentialFromError(error);
+		console.log(errorMessage);
+		// ...
+	}); */
 //const analytics = getAnalytics(app);

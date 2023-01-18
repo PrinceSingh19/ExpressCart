@@ -59,7 +59,7 @@ const Navbar = () => {
 							<Link to="/about">About</Link>
 							{user ? (
 								<h1>
-									Hi {user.displayName}{" "}
+									{user.displayName}{" "}
 									<button className="bg-orange-500 rounded-sm px-2" onClick={signout}>
 										{user.displayName != "" && <span>Sign Out</span>}
 									</button>

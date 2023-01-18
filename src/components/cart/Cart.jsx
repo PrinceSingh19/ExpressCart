@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCartContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
 import { useNavigate } from "react-router-dom";
 import PriceDetails from "./PriceDetails";
+import { useAuthContext } from "../../context/AuthContext";
 
 const Cart = () => {
 	const { cart } = useCartContext();
 	const navigate = useNavigate();
+	const { user } = useAuthContext();
 
+	useEffect(() => {
+		if (!user) {
+			navigate("/signup");
+		}
+	}, [user]);
 	return (
 		<div className="grid grid-cols-1  md:grid-cols-12 bg-custome-slate px-2 md:px-20 gap-4">
 			<div className="col-span-8 bg-white mt-2">
