@@ -91,7 +91,7 @@ const SignUP = () => {
 			/>
 			<div className="w-3/4 grid grid-cols-1 md:grid-cols-2 z-10 border-2 h-1/2 mx-auto mt-20  shadow-lg rounded-md">
 				<div className="bg-login object-cover w-full hidden md:block"></div>
-				<form onSubmit={formik.handleSubmit} className="flex flex-col items-center gap-y-4  p-5">
+				<div className="flex flex-col items-center gap-y-4  p-5">
 					<h1 className="text-xl font-bold text-emerald-600">Create Account</h1>
 					<div className="flex justify-between gap-x-4 text-2xl">
 						<button className="rounded-full border-2 border-spacing-4" onClick={handleGoogle}>
@@ -105,6 +105,8 @@ const SignUP = () => {
 						</button>
 					</div>
 					<p>or use your email for registration</p>
+				</div>
+				<form onSubmit={formik.handleSubmit} className="flex flex-col items-center gap-y-4  p-5">
 					<div className="grid grid-cols-1 md:grid-cols-6 gap-x-4">
 						<label htmlFor="username" className="text-neutral-700 font-medium col-span-2">
 							Username
