@@ -24,7 +24,6 @@ const CartProvider = ({ children }) => {
 	};
 
 	const removeCart = (id) => {
-		console.log(id);
 		dispatch({ type: "REMOVE_CART", payload: id });
 	};
 

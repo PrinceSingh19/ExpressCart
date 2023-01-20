@@ -23,7 +23,7 @@ const Form = () => {
 				name="query"
 			/>
 			<button type="submit" className="-ml-12 h-8 px-3 rounded-r-sm bg-orange-500 ">
-				<HiMagnifyingGlass className="text-2xl" />
+				<HiMagnifyingGlass className="text-2xl fill-white" />
 			</button>
 		</form>
 	);

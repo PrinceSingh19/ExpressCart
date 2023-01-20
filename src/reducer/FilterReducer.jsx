@@ -1,6 +1,4 @@
 import React from "react";
-import { category } from "../components/homepage/HomeProducts";
-
 const FilterReducer = (state, { type, payload }) => {
 	switch (type) {
 		case "FILTERS_LOADING":
@@ -27,15 +25,6 @@ const FilterReducer = (state, { type, payload }) => {
 				loading: false,
 				error: payload,
 			};
-		/* 	case "GET_FILTERED_PRODUCTS":
-			const { all_products } = state;
-			const filter = category(all_products, payload);
-			console.log(filter);
-			return {
-				...state,
-				filter_products: filter,
-			};
- */
 
 		case "UPDATE_FILTER_VALUE":
 			const { name, value } = payload;
@@ -60,7 +49,6 @@ const FilterReducer = (state, { type, payload }) => {
 			const { all_products } = state;
 			let tempFilterProducts = [...all_products];
 			const { rating, brand, discount, price, text } = state.filters;
-			//console.log(text);
 
 			if (brand != "all") {
 				tempFilterProducts = tempFilterProducts.filter(
@@ -94,7 +82,6 @@ const FilterReducer = (state, { type, payload }) => {
 			const { filter_products, sort } = state;
 			let temp = [...filter_products];
 
-			//console.log(filter_products);
 			const sortProducts = (a, b) => {
 				if (sort === "lowest") {
 					return a.price - b.price;
@@ -107,8 +94,7 @@ const FilterReducer = (state, { type, payload }) => {
 			let filtered = temp.sort(sortProducts);
 			return {
 				...state,
-				filter_products: filtered, //here I am assigning the sorted array to
-				// filtered_products and using filtered_products to display in ProductList Component
+				filter_products: filtered
 			};
 
 		case "CLEAR_FILTERS":

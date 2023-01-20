@@ -1,15 +1,12 @@
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { BsFacebook } from "react-icons/bs";
-import { BsInstagram } from "react-icons/bs";
 import { useAuthContext } from "../context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { auth, handleGoogle } from "../auth/Firebase";
-import { useUnmountEffect } from "framer-motion";
-
+import { validate } from "./SignUp";
 const Login = () => {
 	const { user } = useAuthContext();
 	const [loading, setLoading] = useState(false);
@@ -20,6 +17,7 @@ const Login = () => {
 			email: "",
 			password: "",
 		},
+		validate,
 		onSubmit: async (values) => {
 			const { email, password } = values;
 			try {
@@ -70,56 +68,66 @@ const Login = () => {
 			<div className="w-3/4 grid grid-cols-1 md:grid-cols-2 z-10 border-2 h-1/2 mx-auto mt-20  shadow-lg rounded-md">
 				<div className="bg-login object-cover w-full hidden md:block"></div>
 				<div>
-					<div className="flex flex-col items-center gap-y-4  p-5">
+					<div className="flex flex-col items-center gap-y-2 p-2">
 						<h1 className="text-xl font-bold text-emerald-600">Login</h1>
-						<div className="flex justify-between gap-x-4 text-2xl">
-							<button className="rounded-full border-2 border-spacing-4" onClick={google}>
-								<FcGoogle />{" "}
-							</button>
-							<button className="rounded-full border-2 border-spacing-">
-								<BsFacebook />
-							</button>
-							<button className="rounded-full border-2">
-								<BsInstagram className="bg-pink-400" />{" "}
+						<div className="flex justify-between gap-x-4">
+							<button
+								className="rounded-xl border-2 w-44 bg-slate-200 flex items-center gap-x-1  justify-center border-spacing-4"
+								onClick={google}
+							>
+								<FcGoogle /> Login with Google
 							</button>
 						</div>
 						<p>or sign in with email</p>
 					</div>
 
-					<form onSubmit={formik.handleSubmit} className="flex flex-col items-center gap-y-4  p-5">
-						<div className="grid grid-cols-1 md:grid-cols-6 gap-x-4">
+					<form onSubmit={formik.handleSubmit} className="flex flex-col p-5 items-center ">
+						<div className="grid grid-cols-1 md:grid-cols-6">
 							<label htmlFor="email" className="text-neutral-700 font-medium col-span-2">
 								Email
 							</label>
-							<input
-								type="email"
-								id="email"
-								name="email"
-								placehoder="Enter the email"
-								className="border-b-4 border-emerald-600 focus:outline-none outline-none pl-2 col-span-4 text-black rounded-sm  "
-								onChange={formik.handleChange}
-								value={formik.values.email}
-								autoComplete="off"
-							/>
+							<div className="col-span-4">
+								<div className="grid grid-rows-2">
+									<input
+										type="email"
+										id="email"
+										name="email"
+										placehoder="Enter the email"
+										className="border-b-4 border-emerald-600 focus:outline-none outline-none pl-2 text-black rounded-sm"
+										{...formik.getFieldProps("email")}
+										autoComplete="off"
+									/>
+									{formik.touched.email && formik.errors.email ? (
+										<small className="text-red-600">{formik.errors.email}</small>
+									) : null}
+								</div>
+							</div>
 						</div>
-						<div className="grid grid-cols-1 md:grid-cols-6 gap-x-4">
+						<div className="grid grid-cols-1 md:grid-cols-6">
 							<label htmlFor="password" className="text-neutral-700 font-medium col-span-2">
 								Password
 							</label>
-							<input
-								type="password"
-								id="password"
-								name="password"
-								placehoder="Enter the user name"
-								className="border-b-4 border-emerald-600 focus:outline-none outline-none pl-2 col-span-4 text-black rounded-sm  "
-								onChange={formik.handleChange}
-								value={formik.values.password}
-								autoComplete="off"
-							/>
+							<div className="col-span-4">
+								<div className="grid grid-rows-2">
+									<input
+										type="password"
+										id="password"
+										name="password"
+										placehoder="Enter the user name"
+										className="border-b-4 border-emerald-600 focus:outline-none outline-none pl-2 text-black rounded-sm"
+										{...formik.getFieldProps("password")}
+										autoComplete="off"
+									/>
+									{formik.touched.password && formik.errors.password ? (
+										<small className="text-red-600 max-w-[200px] ">{formik.errors.password}</small>
+									) : null}
+								</div>
+							</div>
 						</div>
+
 						<small className="md:w-2/3">
-							Password must contain at least eigth characters, including at least 1 letter and 1
-							number
+							Password should be atleast 6 characters long and should contain at least one Uppercase
+							character, one Lowercase character and one special character
 						</small>
 
 						<button

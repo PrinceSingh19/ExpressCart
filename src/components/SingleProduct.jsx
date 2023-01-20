@@ -12,9 +12,11 @@ import { FaGreaterThan } from "react-icons/fa";
 import SingleLoadingSkeleton from "./SingleLoadingSkeleton";
 import { ToastContainer, toast } from "react-toastify";
 import { useCartContext } from "../context/CartContext";
+import { useAuthContext } from "../context/AuthContext";
 
 const SingleProduct = () => {
 	const [amount, setAmount] = useState(1);
+	const { user } = useAuthContext();
 	const { id } = useParams();
 	const [loading, setLoading] = useState(true);
 	const [index, setIndex] = useState(0);
@@ -24,21 +26,25 @@ const SingleProduct = () => {
 	const { addToCart } = useCartContext();
 	const navigate = useNavigate();
 	const handleCart = (title, singleProduct) => {
-		setAmount((prev) => prev + 1);
-		addToCart(singleProduct);
-		toast(`${amount} ${title} added to cart`, {
-			position: "top-right",
-			autoClose: 3000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: false,
-			progress: undefined,
-			theme: "light",
-		});
-		setTimeout(() => {
-			navigate("/cart");
-		}, 2000);
+		if (user) {
+			setAmount((prev) => prev + 1);
+			addToCart(singleProduct);
+			toast(`${amount} ${title} added to cart`, {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: false,
+				progress: undefined,
+				theme: "light",
+			});
+			setTimeout(() => {
+				navigate("/cart");
+			}, 2000);
+		} else {
+			navigate("/signup");
+		}
 	};
 
 	useEffect(() => {

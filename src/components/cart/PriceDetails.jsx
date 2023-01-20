@@ -3,7 +3,7 @@ import { useCartContext } from "../../context/CartContext";
 import PriceFormat from "../helpers/PriceFormat";
 
 const PriceDetails = () => {
-	const { totalPrice, totalAmount, deliveryFee } = useCartContext();
+	const { totalPrice } = useCartContext();
 	return (
 		<div className=" ">
 			<h1 className="pl-2  my-2">Price Details</h1>

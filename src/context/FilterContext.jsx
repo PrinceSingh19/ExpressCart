@@ -21,7 +21,6 @@ const initialState = {
 };
 const FilterProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const { products } = useAppContext();
 	const getFilterProducts = async (url) => {
 		dispatch({ type: "FILTERS_LOADING" });
 		try {
@@ -36,11 +35,6 @@ const FilterProvider = ({ children }) => {
 			dispatch({ type: "FILTERS_ERROR", payload: err.message });
 		}
 	};
-
-	/* const getFilterProducts = (products) => {
-		dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
-	}; */
-
 	const updateFilterValue = (e) => {
 		const name = e.target.name;
 		const value = e.target.value;

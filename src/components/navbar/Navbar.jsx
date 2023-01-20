@@ -18,9 +18,7 @@ const Navbar = () => {
 	const { totalAmount } = useCartContext();
 	console.log(user);
 	const signout = () => {
-		signOut(auth)
-			.then(() => toast.success("Signed out successfully"))
-			.catch((error) => toast(`${error.message}`));
+		signOut(auth).catch((error) => toast(`${error.message}`));
 	};
 
 	return (
@@ -70,8 +68,6 @@ const Navbar = () => {
 									<Link to="/login">/ Sign In</Link>
 								</div>
 							)}
-							{/* <Link to="/signup">Signup</Link>
-						<Link to="/login">Login</Link> */}
 						</div>
 						<Link to="/cart" className="text-white flex mr-8 text-2xl">
 							<HiShoppingCart />

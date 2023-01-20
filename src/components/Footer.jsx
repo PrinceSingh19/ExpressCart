@@ -30,16 +30,16 @@ const Footer = () => {
 			<div className="pl-10 md:pl-0">
 				<h2 className="font-semibold ">FOLLOW US</h2>
 				<p className="flex items-center gap-1 hover:text-blue-400">
-					<FaFacebookSquare className="text-blue-600" /> Facebook
+					<FaFacebookSquare className="fill-blue-600" /> Facebook
 				</p>
 				<p className="flex items-center gap-1 hover:text-blue-400">
-					<FaTwitterSquare className="text-blue-600" /> Twitter
+					<FaTwitterSquare className="fill-blue-600" /> Twitter
 				</p>
 				<p className="flex items-center gap-1 hover:text-blue-400">
-					<FaInstagramSquare className="text-pink-600" /> Instagram
+					<FaInstagramSquare className="fill-pink-600" /> Instagram
 				</p>
 				<p className="flex items-center gap-1 hover:text-blue-400">
-					<FaYoutubeSquare className="text-red-500" /> Youtube
+					<FaYoutubeSquare className="fill-red-500" /> Youtube
 				</p>
 			</div>
 			<div className=" md:block">
