@@ -14,7 +14,7 @@ const Product = ({ product }) => {
 	return (
 		<NavLink to={`/singleproduct/${id}`}>
 			<div
-				className="rounded-lg flex flex-col border-2 border-slate-200  py-2 pb-4 w-48 md:w-auto"
+				className="rounded-lg flex flex-col border-2 border-slate-200  py-2 pb-4  mx-auto md:w-auto"
 				onClick={() => getSingleProduct(id)}
 			>
 				<figure
