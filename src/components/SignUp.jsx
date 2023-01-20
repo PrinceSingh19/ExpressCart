@@ -4,8 +4,8 @@ import { FcGoogle } from "react-icons/fc";
 import { useAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
-import { createUserWithEmailAndPassword, updateProfile } from "@firebase/auth";
-import { auth, handleGoogle } from "../auth/Firebase";
+import { createUserWithEmailAndPassword, signInWithPopup, updateProfile } from "@firebase/auth";
+import { auth, provider } from "../auth/Firebase";
 import { Link } from "react-router-dom";
 
 export const validate = (values) => {
@@ -37,7 +37,16 @@ const SignUP = () => {
 	const [loading, setLoading] = useState(false);
 
 	const navigate = useNavigate();
-
+	const signup = () => {
+		signInWithPopup(auth, provider)
+			.then(() => {
+				toast.success("Account created successfully");
+				setTimeout(() => {
+					navigate("/home");
+				}, 1000);
+			})
+			.catch(() => toast.error("Something went wrong"));
+	};
 	const formik = useFormik({
 		initialValues: {
 			username: "",
@@ -94,7 +103,7 @@ const SignUP = () => {
 						<div className="flex justify-between gap-x-4">
 							<button
 								className="rounded-xl border-2 w-44 bg-slate-200 flex items-center gap-x-1  justify-center border-spacing-4"
-								onClick={handleGoogle}
+								onClick={signup}
 							>
 								<FcGoogle /> Signup with Google
 							</button>

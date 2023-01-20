@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { HiHome, HiMagnifyingGlass, HiShoppingCart } from "react-icons/hi2";
-import { FiAlertCircle, FiLogIn, FiMenu } from "react-icons/fi";
+import React, { useState } from "react";
+import { HiHome, HiShoppingCart } from "react-icons/hi2";
+import { FiLogIn, FiMenu } from "react-icons/fi";
 import MegaMenu from "./MegaMenu";
-import { CgClose, CgHomeScreen, CgLogIn, CgNotifications } from "react-icons/cg";
+import { CgClose, CgNotifications } from "react-icons/cg";
 import Form from "./Form";
-import image from "../../assets/express.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { useAuthContext } from "../../context/AuthContext";
@@ -16,9 +15,10 @@ const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false);
 	const { user } = useAuthContext();
 	const { totalAmount } = useCartContext();
-	console.log(user);
 	const signout = () => {
-		signOut(auth).catch((error) => toast(`${error.message}`));
+		signOut(auth)
+			.then(() => toast.success("Signed out successfully"))
+			.catch((error) => toast(`${error.message}`));
 	};
 
 	return (
@@ -44,7 +44,7 @@ const Navbar = () => {
 					<div className="flex items-center justify-between">
 						<div className="w-1/4 hover:cursor-pointer" onClick={() => navigate("/home")}>
 							<img
-								src={image}
+								src="./express.png"
 								alt="Express Cart"
 								className="h-10 pl-2 flex justify-start py-1 ml-1"
 							/>

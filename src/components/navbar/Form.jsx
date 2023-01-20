@@ -21,6 +21,7 @@ const Form = () => {
 				className="h-8 rounded-sm border-2 border-cyan-600  pl-4 w-full"
 				ref={inputRef}
 				name="query"
+				autoComplete="off"
 			/>
 			<button type="submit" className="-ml-12 h-8 px-3 rounded-r-sm bg-orange-500 ">
 				<HiMagnifyingGlass className="text-2xl fill-white" />
