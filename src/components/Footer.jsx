@@ -5,7 +5,7 @@ import {
 	FaTwitterSquare,
 	FaYoutubeSquare,
 } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
 	return (
@@ -29,18 +29,45 @@ const Footer = () => {
 
 			<div className="pl-10 md:pl-0">
 				<h2 className="font-semibold ">FOLLOW US</h2>
-				<p className="flex items-center gap-1 hover:text-blue-400">
+				<a
+					href="https://www.facebook.com/"
+					target="_blank"
+					rel="noopener"
+					aria-label="Facebook"
+					className="flex items-center gap-1 hover:text-blue-400"
+				>
 					<FaFacebookSquare className="fill-blue-600" /> Facebook
-				</p>
-				<p className="flex items-center gap-1 hover:text-blue-400">
+				</a>
+
+				<a
+					href="https://twitter.com/"
+					target="_blank"
+					rel="noopener"
+					aria-label="twitter"
+					className="flex items-center gap-1 hover:text-blue-400"
+				>
 					<FaTwitterSquare className="fill-blue-600" /> Twitter
-				</p>
-				<p className="flex items-center gap-1 hover:text-blue-400">
+				</a>
+
+				<a
+					href="https://www.instagram.com/"
+					target="_blank"
+					rel="noopener"
+					aria-label="instagram"
+					className="flex items-center gap-1 hover:text-blue-400"
+				>
 					<FaInstagramSquare className="fill-pink-600" /> Instagram
-				</p>
-				<p className="flex items-center gap-1 hover:text-blue-400">
+				</a>
+
+				<a
+					href="https://www.youtube.com/"
+					target="_blank"
+					rel="noopener"
+					aria-label="youtube"
+					className="flex items-center gap-1 hover:text-blue-400"
+				>
 					<FaYoutubeSquare className="fill-red-500" /> Youtube
-				</p>
+				</a>
 			</div>
 			<div className=" md:block">
 				<h2 className="font-semibold ">CONTACT US</h2>
@@ -50,7 +77,7 @@ const Footer = () => {
 						106/Avdhut Heights, Hightension Road, Pragati Ngr, Nallasopar (E), 401209, Palghar,
 						Maharashtra, India
 					</p>
-					<p>Email: expresscart@gmail.com</p>
+					<p>expresscart@gmail.com</p>
 					<p>Contact: +91 987465123</p>
 				</div>
 			</div>

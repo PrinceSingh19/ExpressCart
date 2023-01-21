@@ -44,17 +44,17 @@ const AboutUs = () => {
 					</p>
 				</section>
 
-				<section className="w-11/12 md:w-3/4 h-[123.9px]">
+				<section className="w-11/12 md:w-3/4 h-[123.9px] font-[poppins]">
 					<h3 className="md:text-xl font-semibold">Our Mission</h3>
-					<p>
+					<p className="text-justify">
 						To revolutionarize the shopping experience for the customers through our cutting edge
 						technology & 24x7 customer support
 					</p>
 				</section>
 
-				<section className="w-11/12 md:w-3/4">
-					<h3 className="md:text-xl font-semibold">Our Goal</h3>
-					<p>
+				<section className="w-11/12 md:w-3/4 font-[poppins]">
+					<h3 className="md:text-xl font-semibold ">Our Goal</h3>
+					<p className="text-justify">
 						To reach every corner of the country & provide immmersive shopping experience and make
 						it affordable to every person in the country
 					</p>

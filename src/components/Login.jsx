@@ -158,6 +158,19 @@ const Login = () => {
 						</button>
 					</form>
 				</div>
+				<hr className="border-l-red-800" />
+				<div className="text-center ">
+					<div className="h-[1px] w-full bg-blue-500"></div>
+					<div className="mt-3">
+						Don't have account
+						<button
+							className="px-4 bg-blue-500 text-white rounded-md text-lg mt-1 mb-3"
+							onClick={() => navigate("/signup")}
+						>
+							Create Account
+						</button>
+					</div>
+				</div>
 			</div>
 		</>
 	);

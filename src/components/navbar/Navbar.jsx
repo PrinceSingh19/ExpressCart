@@ -39,7 +39,7 @@ const Navbar = () => {
 				{/* for md devices */}
 				<nav
 					className="bg-black sticky top-0  hidden
-			 md:block "
+			 md:block"
 				>
 					<div className="flex items-center justify-between">
 						<div className="w-1/4 hover:cursor-pointer" onClick={() => navigate("/home")}>
@@ -81,7 +81,7 @@ const Navbar = () => {
 
 				{/* For mobile */}
 				<nav className="md:hidden ">
-					<div className="flex bg-black items-center">
+					<div className="flex bg-black items-center gap-x-2 pr-1">
 						<button className="md:hidden z-50 pl-3" onClick={() => setNavOpen(!navOpen)}>
 							{navOpen ? (
 								<CgClose className="text-white text-4xl ml-1 " />
@@ -96,9 +96,21 @@ const Navbar = () => {
 								className="h-14 pl-2 flex justify-start py-1 ml-1"
 							/>
 						</div>
-
-						<div className="pr-2 ">
+						<div>
 							<Form />
+						</div>
+						<div>
+							{user ? (
+								<h1 className="text-white">
+									<button className="bg-orange-500 py-1 rounded-sm px-2" onClick={signout}>
+										{user.displayName != "" && <span>Logout</span>}
+									</button>
+								</h1>
+							) : (
+								<div className="text-white w-16">
+									<Link to="/login">Sign In</Link>
+								</div>
+							)}
 						</div>
 					</div>
 					<div
@@ -113,7 +125,7 @@ const Navbar = () => {
 						<NavLink to="/home">
 							<HiHome />
 						</NavLink>
-						<NavLink to="/">
+						<NavLink to="/login">
 							<FiLogIn />
 						</NavLink>
 						<NavLink to="/">
