@@ -18,13 +18,13 @@ const Form = () => {
 		<form className="flex items-center " onSubmit={handleSubmit}>
 			<input
 				type="text"
-				className="h-8 rounded-sm border-2 border-cyan-600  pl-4 w-full"
+				className="h-8 rounded-sm border-2 border-cyan-600 pl-1 md:pl-4 w-full"
 				ref={inputRef}
 				name="query"
 				autoComplete="off"
 			/>
-			<button type="submit" className="-ml-12 h-8 px-3 rounded-r-sm bg-orange-500 ">
-				<HiMagnifyingGlass className="text-2xl fill-white" />
+			<button type="submit" className="md:-ml-12 h-8 px-2 md:px-3 rounded-r-sm bg-orange-500 ">
+				<HiMagnifyingGlass className=" md:text-2xl fill-white" />
 			</button>
 		</form>
 	);

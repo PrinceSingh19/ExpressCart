@@ -82,7 +82,7 @@ const Navbar = () => {
 				{/* For mobile */}
 				<nav className="md:hidden ">
 					<div className="flex bg-black items-center gap-x-2 pr-1">
-						<button className="md:hidden z-50 pl-3" onClick={() => setNavOpen(!navOpen)}>
+						<button className="md:hidden z-50 pl-1" onClick={() => setNavOpen(!navOpen)}>
 							{navOpen ? (
 								<CgClose className="text-white text-4xl ml-1 " />
 							) : (
@@ -93,7 +93,7 @@ const Navbar = () => {
 							<img
 								src="./express.png"
 								alt="Express Cart"
-								className="h-14 pl-2 flex justify-start py-1 ml-1"
+								className="w-14 h-10 flex justify-start py-1"
 							/>
 						</div>
 						<div>
@@ -102,7 +102,7 @@ const Navbar = () => {
 						<div>
 							{user ? (
 								<h1 className="text-white">
-									<button className="bg-orange-500 py-1 rounded-sm px-2" onClick={signout}>
+									<button className="bg-orange-500 py-1 rounded-sm  px-1" onClick={signout}>
 										{user.displayName != "" && <span>Logout</span>}
 									</button>
 								</h1>

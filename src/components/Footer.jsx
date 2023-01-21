@@ -23,11 +23,15 @@ const Footer = () => {
 				<NavLink to="/contact" className=" hover:text-blue-400">
 					Submit Query
 				</NavLink>
-				<h4 className=" hover:text-blue-400">Store Location</h4>
-				<h4 className=" hover:text-blue-400">Order Tracking</h4>
+				<Link to="/" className=" hover:text-blue-400">
+					Store Location
+				</Link>
+				<Link to="/" className=" hover:text-blue-400">
+					Order Tracking
+				</Link>
 			</div>
 
-			<div className="pl-10 md:pl-0">
+			<div className="pl-2 md:pl-0">
 				<h2 className="font-semibold ">FOLLOW US</h2>
 				<a
 					href="https://www.facebook.com/"
@@ -69,7 +73,7 @@ const Footer = () => {
 					<FaYoutubeSquare className="fill-red-500" /> Youtube
 				</a>
 			</div>
-			<div className=" md:block">
+			<div className="md:block">
 				<h2 className="font-semibold ">CONTACT US</h2>
 				<div>
 					<p>ExpressCart Pvt Ltd</p>
@@ -77,7 +81,9 @@ const Footer = () => {
 						106/Avdhut Heights, Hightension Road, Pragati Ngr, Nallasopar (E), 401209, Palghar,
 						Maharashtra, India
 					</p>
-					<p>expresscart@gmail.com</p>
+					<a href="mailto: expresscart@gmail.com" className="break-words text-blue-900">
+						expresscart@gmail.com
+					</a>
 					<p>Contact: +91 987465123</p>
 				</div>
 			</div>
