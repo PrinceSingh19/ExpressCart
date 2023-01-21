@@ -71,7 +71,9 @@ const Navbar = () => {
 						</div>
 						<Link to="/cart" className="text-white flex mr-8 text-2xl">
 							<HiShoppingCart />
-							<span className="text-white text-sm absolute top-1 right-6">{totalAmount}</span>
+							<span className="text-white text-sm absolute top-1 right-6">
+								{user ? totalAmount : null}
+							</span>
 						</Link>
 					</div>
 					<div className=" bg-white flex justify-around border-b-2 border-slate-300 box-border">

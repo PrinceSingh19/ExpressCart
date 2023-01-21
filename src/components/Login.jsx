@@ -160,9 +160,9 @@ const Login = () => {
 					</form>
 				</div>
 				<hr className="border-l-red-800" />
-				<div className="text-center ">
-					<div className="h-[1px] w-full bg-blue-500"></div>
-					<div className="mt-3">
+				<div className="text-center  md:flex md:flex-col md:justify-center md:items-center">
+					<div className="h-[2px] w-full md:w-3/4  bg-slate-500"></div>
+					<div className="mt-3 md:flex md:flex-col">
 						Don't have account
 						<button
 							className="px-4 bg-blue-500 text-white rounded-md text-lg mt-1 mb-3"
