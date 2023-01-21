@@ -133,7 +133,7 @@ const Navbar = () => {
 						</NavLink>
 						<NavLink to="/cart" className="flex ">
 							<HiShoppingCart />
-							<span className="text-sm absolute top-1 ml-6">{totalAmount}</span>
+							<span className="text-sm absolute top-1 ml-6">{user ? totalAmount : null}</span>
 						</NavLink>
 					</div>
 				</nav>
