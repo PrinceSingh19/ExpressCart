@@ -1,41 +1,14 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { useAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import { createUserWithEmailAndPassword, signInWithPopup, updateProfile } from "@firebase/auth";
 import { auth, provider } from "../auth/Firebase";
 import { Link } from "react-router-dom";
 
-export const validate = (values) => {
-	const errors = {};
-	//regex for email and password verification
-	const regexEmail = /^[(\w\d\W)+]+@[\w+]+\.[\w+]+$/i;
-	const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
-	if (!values.username) {
-		errors.username = "Required";
-	} else if (values.username.length > 15) {
-		errors.username = "Must be 15 characters or less";
-	}
-
-	if (!values.email) {
-		errors.email = "Required";
-	} else if (!regexEmail.test(values.email)) {
-		errors.email = "Invalid email address";
-	}
-
-	if (!values.password) {
-		errors.password = "Required";
-	} else if (!regexPassword.test(values.password)) {
-		errors.password = "Please follow the instructions";
-	}
-
-	return errors;
-};
 const SignUP = () => {
 	const [loading, setLoading] = useState(false);
-
 	const navigate = useNavigate();
 	const signup = () => {
 		//on signup click with email and password
@@ -48,6 +21,32 @@ const SignUP = () => {
 			})
 			.catch(() => toast.error("Something went wrong"));
 	};
+
+	const validate = (values) => {
+		const errors = {};
+		//regex for email and password verification
+		const regexEmail = /^[(\w\d\W)+]+@[\w+]+\.[\w+]+$/i;
+		const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
+		if (!values.username) {
+			errors.username = "Required";
+		} else if (values.username.length > 15) {
+			errors.username = "Must be 15 characters or less";
+		}
+
+		if (!values.email) {
+			errors.email = "Required";
+		} else if (!regexEmail.test(values.email)) {
+			errors.email = "Invalid email address";
+		}
+
+		if (!values.password) {
+			errors.password = "Required";
+		} else if (!regexPassword.test(values.password)) {
+			errors.password = "Please follow the instructions";
+		}
+
+		return errors;
+	};
 	const formik = useFormik({
 		initialValues: {
 			username: "",
@@ -57,6 +56,7 @@ const SignUP = () => {
 		validate,
 		onSubmit: async (values) => {
 			const { username, email, password } = values;
+			console.log("first");
 			try {
 				setLoading(true);
 				await createUserWithEmailAndPassword(auth, email, password)

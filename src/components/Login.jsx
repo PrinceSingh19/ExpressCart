@@ -6,14 +6,32 @@ import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { auth, handleGoogle } from "../auth/Firebase";
-import { validate } from "./SignUp";
 const Login = () => {
 	const { user } = useAuthContext();
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
+	const validate = (values) => {
+		const errors = {};
+		//regex for email and password verification
+		const regexEmail = /^[(\w\d\W)+]+@[\w+]+\.[\w+]+$/i;
+		const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
+
+		if (!values.email) {
+			errors.email = "Required";
+		} else if (!regexEmail.test(values.email)) {
+			errors.email = "Invalid email address";
+		}
+
+		if (!values.password) {
+			errors.password = "Required";
+		} else if (!regexPassword.test(values.password)) {
+			errors.password = "Please follow the instructions";
+		}
+
+		return errors;
+	};
 	const formik = useFormik({
 		initialValues: {
-			username: "",
 			email: "",
 			password: "",
 		},
@@ -22,26 +40,22 @@ const Login = () => {
 			const { email, password } = values;
 			try {
 				setLoading(true);
-				const response = await signInWithEmailAndPassword(auth, email, password);
-				if (response) {
-					setTimeout(() => {
-						navigate("/home");
-					}, 1000);
-				}
+				await signInWithEmailAndPassword(auth, email, password)
+					.then((response) => {
+						console.log(response);
+						setTimeout(() => {
+							navigate("/home");
+						}, 1000);
+					})
+					.catch((error) => toast.error(`Please enter correct details ${error}`));
 			} catch (err) {
 				setLoading(false);
-				console.log(err);
-				toast.error("Please enter correct details");
+				toast.error("Please enter valid details");
 			} finally {
 				setLoading(false);
 			}
 		},
 	});
-
-	//on button click sign in with google
-	const google = () => {
-		handleGoogle();
-	};
 
 	useEffect(() => {
 		//if user is logged in the alert login successfull and redirect to home
@@ -52,6 +66,7 @@ const Login = () => {
 			}, 1000);
 		}
 	}, [user]);
+
 	return (
 		<>
 			<ToastContainer
@@ -74,14 +89,13 @@ const Login = () => {
 						<div className="flex justify-between gap-x-4">
 							<button
 								className="rounded-xl border-2 w-44 bg-slate-200 flex items-center gap-x-1  justify-center border-spacing-4"
-								onClick={google}
+								onClick={() => handleGoogle()}
 							>
 								<FcGoogle /> Login with Google
 							</button>
 						</div>
 						<p>or sign in with email</p>
 					</div>
-
 					<form onSubmit={formik.handleSubmit} className="flex flex-col p-5 items-center ">
 						<div className="grid grid-cols-1 md:grid-cols-6">
 							<label htmlFor="email" className="text-neutral-700 font-medium col-span-2">
@@ -132,6 +146,7 @@ const Login = () => {
 						</small>
 
 						<button
+							onClick={() => console.log("first")}
 							disabled={loading}
 							type="submit"
 							className="text-white bg-emerald-600 mt-3  hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium w-1/2 rounded-2xl text-xl py-1 text-center flex items-center justify-center"
