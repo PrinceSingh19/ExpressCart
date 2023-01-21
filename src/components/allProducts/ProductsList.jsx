@@ -8,9 +8,10 @@ import ProductListSkeleton from "./ProductListSkeleton";
 
 const ProductsList = () => {
 	const { cate } = useParams();
-	const { getFilterProducts, all_products, filter_products } = useFilterContext();
+	const { getFilterProducts, filter_products } = useFilterContext();
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
+		//fetching the filtered data based on query received upon view all button click on homepage
 		getFilterProducts(`${API}/category/${cate}`).then(() => {
 			setLoading(false);
 		});
@@ -20,7 +21,7 @@ const ProductsList = () => {
 		return <ProductListSkeleton />;
 	}
 	return (
-		<div className="mx-2 mt-2 mb-16 md:mb-0 grid grid-cols-1 md:grid-cols-12">
+		<div className="mx-2 mt-2 mb-16 md:mb-0 grid grid-cols-1 md:grid-cols-12 md:min-h-[500px]">
 			<div className="md:h-9 w-full md:col-span-2">
 				<FilterSection cat={cate} />
 			</div>

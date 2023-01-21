@@ -1,29 +1,18 @@
-import React, { useState } from "react";
-import { AiOutlineSortAscending, AiOutlineSortDescending } from "react-icons/ai";
-import { BsSortNumericDown, BsSortNumericUp, BsStarFill } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { BsStarFill } from "react-icons/bs";
 import { useFilterContext } from "../../context/FilterContext";
 import { allBrands, discounts, newPriceRange, ratings } from "../helpers/Filters";
 import PriceFormat from "../helpers/PriceFormat";
 import DropdownHeader from "./DropdownHeader";
 import FilterModal from "./mobileFilters/FilterModal";
 
-const FilterSection = ({ cat }) => {
-	const navigate = useNavigate();
-	const { updateFilterValue, clearFilters, all_products, sortProductsValue } = useFilterContext();
-	const uniqueBrand = allBrands(all_products);
-	//const uniqueBrand = ["all", ...new Set(brands)];
+const FilterSection = () => {
+	const { updateFilterValue, clearFilters, all_products } = useFilterContext();
+	const uniqueBrand = allBrands(all_products); //getting allBrands function from helpers and using it to get the unique brand names of all products
 
-	/* const range = (start, stop, step) => {
-		return Array.from({ length: (stop - start) / step + 1 }, (v, i) => start + i * step);
-	};
-
-	const ratings = range(1, 4, 1);
-	const discounts = range(10, 50, 10);
-	const newPriceRange = [6.04, 12.1, 30.3, 60.6]; */
 	return (
 		<>
-			<div className=" mx-auto hidden md:block">
+			<div className="mx-auto hidden md:block">
 				<div className="text-xl font-semibold">Filters</div>
 				{/*   Brands */}
 				<DropdownHeader arrayData={uniqueBrand} head="brand" />
@@ -79,41 +68,6 @@ const FilterSection = ({ cat }) => {
 					Clear Filters
 				</button>
 			</div>
-			{/* <div className="md:hidden flex items-center gap-1 mt-1 mb-1">
-				<div>Sort</div>
-				<button
-					className="px-2 text-sm border-2 ml-3 rounded-sm"
-					name="sort"
-					value="lowest"
-					onClick={sortProductsValue}
-				>
-					Lowest
-				</button>
-				<button
-					className="px-2 text-sm border-2 rounded-sm"
-					name="sort"
-					value="highest"
-					onClick={sortProductsValue}
-				>
-					Highest
-				</button>
-				<button
-					className="px-2 text-sm border-2 rounded-sm"
-					name="sort"
-					value="a-z"
-					onClick={sortProductsValue}
-				>
-					A-Z
-				</button>
-				<button
-					className="px-2 text-sm border-2 rounded-sm"
-					name="sort"
-					value="z-a"
-					onClick={sortProductsValue}
-				>
-					Z-A
-				</button>
-			</div> */}
 		</>
 	);
 };

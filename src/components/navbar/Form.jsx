@@ -7,6 +7,7 @@ const Form = () => {
 	const { updateFormValue } = useFilterContext();
 	const navigate = useNavigate();
 	const handleSubmit = (e) => {
+		//setting the val and query of the form to updateFormValue as argument to update form state values in filtercontext and finally navigate to searchproducts to display the search results
 		e.preventDefault();
 		const val = inputRef.current.value;
 		const query = inputRef.current.name;

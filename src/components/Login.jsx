@@ -38,12 +38,13 @@ const Login = () => {
 		},
 	});
 
+	//on button click sign in with google
 	const google = () => {
 		handleGoogle();
-		console.log(handleGoogle);
 	};
 
 	useEffect(() => {
+		//if user is logged in the alert login successfull and redirect to home
 		if (user) {
 			toast.success("Login successful");
 			setTimeout(() => {

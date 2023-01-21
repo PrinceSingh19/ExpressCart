@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MegaMenuLinks } from "./MegaMenuLinks";
-import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { BiChevronDown } from "react-icons/bi";
 import { CgChevronDown } from "react-icons/cg";
 
 const MegaMenu = () => {
-	const navigate = useNavigate();
 	const [mainHead, setMainHead] = useState("");
 	const [heading, setHeading] = useState("");
 	const [mouse, setMouse] = useState(false);
@@ -43,6 +42,7 @@ const MegaMenu = () => {
 									<BiChevronDown />
 								</span>
 							</h1>
+							{/* for md devices */}
 							<div className="hidden md:block  bg-opacity-100">
 								<div className="md:absolute left-0  gap-8 group-hover:block hidden hover:block md:w-full md:border-b-2 md:border-slate-300 h-56 z-50 md:bg-white">
 									{links.submenu ? (
@@ -61,12 +61,7 @@ const MegaMenu = () => {
 																		key={ke}
 																		className={`list-none  md:pl-0  md:block text-sm md:text-base  hover:text-blue-600`}
 																	>
-																		<Link
-																			to={`/navsearch${slink.link}`}
-																			//onClick={() => navigate(`/navsearch/${slink.link}`)}
-																		>
-																			{slink.name}
-																		</Link>
+																		<Link to={`/navsearch${slink.link}`}>{slink.name}</Link>
 																	</li>
 																);
 															})}
@@ -80,6 +75,7 @@ const MegaMenu = () => {
 									)}
 								</div>
 							</div>
+							{/* for mobile devices */}
 							<div className="md:hidden z-30">
 								<div className="md:absolute  left-2 px-10 gap-8 group-hover:block hidden hover:block md:w-full md:border-b-2 md:border-slate-300 h-1/3 mb-2">
 									{links.submenu ? (

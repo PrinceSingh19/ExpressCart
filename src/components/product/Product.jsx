@@ -1,14 +1,12 @@
 import React from "react";
-import { BsStarFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
 import DiscountCalculate from "../helpers/DiscountCalculate";
 import PriceFormat from "../helpers/PriceFormat";
-import PriceComponent from "./PriceComponent";
 import Rate from "./Rate";
 
 const Product = ({ product }) => {
-	const { loading, getSingleProduct } = useAppContext();
+	const { getSingleProduct } = useAppContext();
 	const { id, title, price, rating, discountPercentage } = product;
 
 	return (

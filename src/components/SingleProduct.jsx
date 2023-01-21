@@ -48,6 +48,7 @@ const SingleProduct = () => {
 	};
 
 	useEffect(() => {
+		//fetching singleProduct from api based on selected product
 		getSingleProduct(`${API}/${id}`).then(() => setLoading(false));
 	}, []);
 	if (loading) {

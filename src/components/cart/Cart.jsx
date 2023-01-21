@@ -11,8 +11,9 @@ const Cart = () => {
 	const { user } = useAuthContext();
 
 	useEffect(() => {
+		//if user is not signed in then redirect him to the login page to show the cart page
 		if (!user) {
-			navigate("/signup");
+			navigate("/login");
 		}
 	}, [user]);
 	return (

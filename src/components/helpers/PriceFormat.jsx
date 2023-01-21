@@ -1,6 +1,7 @@
 import React from "react";
 import { useAppContext } from "../../context/AppContext";
 export const convert = (convertedPrice) => {
+	//converting the fetched dollar currency into indian rupee currency format
 	return Intl.NumberFormat("en-IN", {
 		style: "currency",
 		currency: "INR",

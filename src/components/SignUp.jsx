@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 export const validate = (values) => {
 	const errors = {};
+	//regex for email and password verification
 	const regexEmail = /^[(\w\d\W)+]+@[\w+]+\.[\w+]+$/i;
 	const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
 	if (!values.username) {
@@ -33,11 +34,11 @@ export const validate = (values) => {
 	return errors;
 };
 const SignUP = () => {
-	const { handleSignup } = useAuthContext();
 	const [loading, setLoading] = useState(false);
 
 	const navigate = useNavigate();
 	const signup = () => {
+		//on signup click with email and password
 		signInWithPopup(auth, provider)
 			.then(() => {
 				toast.success("Account created successfully");

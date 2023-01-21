@@ -6,8 +6,9 @@ import DisplaySearch from "./DisplaySearch";
 
 const NavSearch = () => {
 	const { name } = useParams();
-	const { products, loading } = useAppContext();
-	console.log(name);
+	const { products } = useAppContext();
+
+	//displaying the searched products based on the query
 	const searched = products.filter((product) =>
 		product.category.toLowerCase().includes(name.toLowerCase())
 	);

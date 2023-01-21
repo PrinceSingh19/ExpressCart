@@ -1,5 +1,5 @@
 import React from "react";
-import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
+import { BsStar, BsStarFill } from "react-icons/bs";
 
 const Rating = ({ rating }) => {
 	const ratingArray = Array.from({ length: 5 }, (v, i) => {

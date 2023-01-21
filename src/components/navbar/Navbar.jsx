@@ -15,6 +15,8 @@ const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false);
 	const { user } = useAuthContext();
 	const { totalAmount } = useCartContext();
+
+	//signout button to sign out
 	const signout = () => {
 		signOut(auth)
 			.then(() => toast.success("Signed out successfully"))
@@ -43,11 +45,9 @@ const Navbar = () => {
 				>
 					<div className="flex items-center justify-between">
 						<div className="w-1/4 hover:cursor-pointer" onClick={() => navigate("/home")}>
-							<img
-								src="./express.png"
-								alt="Express Cart"
-								className="h-10 pl-2 flex justify-start py-1 ml-1"
-							/>
+							<button className="text-xl text-yellow-300 py-1 pl-2 font-[cursive] font-bold">
+								ExpressCart
+							</button>
 						</div>
 
 						<div className="w-2/4 ">
@@ -90,11 +90,9 @@ const Navbar = () => {
 							)}
 						</button>
 						<div className="md:w-1/4 w-2/4 ">
-							<img
-								src="./express.png"
-								alt="Express Cart"
-								className="w-14 h-10 flex justify-start py-1"
-							/>
+							<button className="text-lg text-yellow-300 py-1 pl-2 font-[cursive] font-bold">
+								ExpressCart
+							</button>
 						</div>
 						<div>
 							<Form />

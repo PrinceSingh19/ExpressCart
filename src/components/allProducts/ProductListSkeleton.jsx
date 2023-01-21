@@ -1,5 +1,4 @@
 import React from "react";
-import Skeleton from "react-loading-skeleton";
 import ProductSkeleton from "../product/ProductSkeleton";
 import FilterSkeleton from "./FilterSkeleton";
 
@@ -13,7 +12,7 @@ const ProductListSkeleton = () => {
 				<FilterSkeleton />
 			</div>
 
-			<div className="col-span-10 grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-2 justify-center">
+			<div className="col-span-11 md:col-span-10 grid grid-cols-2 md:grid-cols-4 md:gap-x-2 gap-y-2 ">
 				{Array.from({ length: 5 }, () => 0).map((x, i) => (
 					<ProductSkeleton key={i} />
 				))}

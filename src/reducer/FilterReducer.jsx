@@ -1,13 +1,15 @@
 import React from "react";
 const FilterReducer = (state, { type, payload }) => {
 	switch (type) {
+		//filters loading
 		case "FILTERS_LOADING":
 			return {
 				...state,
 				loading: true,
 			};
+
+		//setting state of filter products if query gets resolved
 		case "LOAD_FILTER_PRODUCTS":
-			//console.log(payload);
 			const allPrice = payload.map((x) => x.price);
 			const maxPrice = Math.max(...allPrice);
 			return {
@@ -19,6 +21,7 @@ const FilterReducer = (state, { type, payload }) => {
 				maxPrice,
 			};
 
+		//setting state of filter products if query gets failed
 		case "FILTERS_ERROR":
 			return {
 				...state,
@@ -26,6 +29,7 @@ const FilterReducer = (state, { type, payload }) => {
 				error: payload,
 			};
 
+		//updating the state of filters based on the filters applied by the user
 		case "UPDATE_FILTER_VALUE":
 			const { name, value } = payload;
 			return {
@@ -35,6 +39,8 @@ const FilterReducer = (state, { type, payload }) => {
 					[name]: value,
 				},
 			};
+
+		//updating the form field value based on the query received by user
 		case "UPDATE_FORM_VALUE":
 			const { query, val } = payload;
 
@@ -45,6 +51,8 @@ const FilterReducer = (state, { type, payload }) => {
 					[query]: val,
 				},
 			};
+
+		//setting the filters and displaying the filtered products based on filters applied
 		case "APPLY_FILTERS":
 			const { all_products } = state;
 			let tempFilterProducts = [...all_products];
@@ -72,12 +80,14 @@ const FilterReducer = (state, { type, payload }) => {
 				filter_products: tempFilterProducts,
 			};
 
+		//setting the sort state
 		case "GET_SORT_VALUE":
 			return {
 				...state,
 				sort: payload,
 			};
 
+		//sorting products based on lowest and highest
 		case "SORT_PRODUCTS":
 			const { filter_products, sort } = state;
 			let temp = [...filter_products];
@@ -90,13 +100,13 @@ const FilterReducer = (state, { type, payload }) => {
 					return b.price - a.price;
 				}
 			};
-
 			let filtered = temp.sort(sortProducts);
 			return {
 				...state,
-				filter_products: filtered
+				filter_products: filtered,
 			};
 
+		//clearing all the filters applied by the user on button click
 		case "CLEAR_FILTERS":
 			return {
 				...state,

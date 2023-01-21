@@ -2,7 +2,7 @@ const CartReducer = (state, { type, payload }) => {
 	switch (type) {
 		case "ADD_TO_CART":
 			const { id, title, price, stock, description, images, discountPercentage, brand } = payload;
-
+			//finding that if selected products aleready exists in cart then increase its amount
 			let existingProduct = state.cart.find((cart) => cart.id === id);
 			if (existingProduct) {
 				let updatedProduct = state.cart.map((currElem) => {
@@ -45,12 +45,14 @@ const CartReducer = (state, { type, payload }) => {
 				};
 			}
 
+		//removing products from cart
 		case "REMOVE_CART":
 			return {
 				...state,
 				cart: state.cart.filter((cart) => cart.id != payload),
 			};
 
+		//increasing the product amount in cart
 		case "SET_INCREASE":
 			let newAmount = state.cart.map((currElem) => {
 				if (currElem.id === payload) {
@@ -73,6 +75,7 @@ const CartReducer = (state, { type, payload }) => {
 				cart: newAmount,
 			};
 
+		//decreasing product amount in cart
 		case "SET_DECREASE":
 			let decAmount = state.cart.map((currElem) => {
 				if (currElem.id === payload) {
@@ -95,6 +98,7 @@ const CartReducer = (state, { type, payload }) => {
 				cart: decAmount,
 			};
 
+		//calculating total price and total amount of the proudcts added in cart if there is any state change in cart
 		case "TOTAL_CART_PRICE_AMOUNT":
 			const { totalPrice, totalAmount } = state.cart.reduce(
 				(acc, curr) => {
