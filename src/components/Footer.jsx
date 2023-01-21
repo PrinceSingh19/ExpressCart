@@ -15,7 +15,7 @@ const Footer = () => {
 				<p>&#169; {new Date().getFullYear()}</p>
 				<p>All rights reserved</p>
 			</div>
-			<div>
+			<div className="flex flex-col">
 				<h2 className="font-semibold">ABOUT US</h2>
 				<NavLink to="/about" className=" block hover:text-blue-400">
 					About Us
@@ -23,12 +23,12 @@ const Footer = () => {
 				<NavLink to="/contact" className=" hover:text-blue-400">
 					Submit Query
 				</NavLink>
-				<Link to="/" className=" hover:text-blue-400">
+				<NavLink to="/" className=" hover:text-blue-400">
 					Store Location
-				</Link>
-				<Link to="/" className=" hover:text-blue-400">
+				</NavLink>
+				<NavLink to="/" className=" hover:text-blue-400">
 					Order Tracking
-				</Link>
+				</NavLink>
 			</div>
 
 			<div className="pl-2 md:pl-0">
