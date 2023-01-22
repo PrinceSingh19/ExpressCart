@@ -13,11 +13,8 @@ const CartItem = () => {
 		<div className=" border-2">
 			{cart.map((cart) => {
 				return (
-					<div
-						key={cart.id}
-						className="grid grid-cols-12 justify-items-center  border-b-2 mt-3 pb-2"
-					>
-						<div className="col-span-3 pl-2 md:pl-0">
+					<div key={cart.id} className="grid grid-cols-12   border-b-2 mt-3 pb-2">
+						<div className="col-span-3 pl-2 md:flex md:flex-col md:items-center">
 							<img src={cart.images[0]} alt={cart.title} className="w-24 h-24 object-cover" />
 							<div className="space-x-3 flex justify-center">
 								<button onClick={() => setDecrease(cart.id)}>
@@ -50,7 +47,7 @@ const CartItem = () => {
 								<MdDelete className="text-2xl" /> Remove
 							</button>
 						</div>
-						<div className=" col-span-12  ml-36 md:ml-0  md:col-span-4 ">
+						<div className="col-span-12  ml-2 md:ml-0  md:col-span-4 ">
 							<h4>
 								Delivery by Tommorrow |{" "}
 								{cart.price >= 6.12 ? (

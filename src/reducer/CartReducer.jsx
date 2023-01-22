@@ -1,3 +1,6 @@
+import { finalDiscount } from "../components/helpers/DiscountCalculate";
+import { convert } from "../components/helpers/PriceFormat";
+
 const CartReducer = (state, { type, payload }) => {
 	switch (type) {
 		case "ADD_TO_CART":
@@ -102,10 +105,10 @@ const CartReducer = (state, { type, payload }) => {
 		case "TOTAL_CART_PRICE_AMOUNT":
 			const { totalPrice, totalAmount } = state.cart.reduce(
 				(acc, curr) => {
-					let { price, amount } = curr;
-
+					let { price, amount, discountPercentage } = curr;
+					const discountedPrice = finalDiscount(discountPercentage, price) / 82.5;
 					acc.totalAmount += amount;
-					acc.totalPrice += price * amount;
+					acc.totalPrice += discountedPrice * amount;
 					return acc;
 				},
 				{ totalPrice: 0, totalAmount: 0 }

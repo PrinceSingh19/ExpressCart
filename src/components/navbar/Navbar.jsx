@@ -71,7 +71,7 @@ const Navbar = () => {
 						</div>
 						<Link to="/cart" className="text-white flex mr-8 text-2xl">
 							<HiShoppingCart />
-							<span className="text-white text-sm absolute top-1 right-6">
+							<span className="text-white text-sm absolute top-1 right-5">
 								{user ? totalAmount : null}
 							</span>
 						</Link>
@@ -133,7 +133,7 @@ const Navbar = () => {
 						</NavLink>
 						<NavLink to="/cart" className="flex ">
 							<HiShoppingCart />
-							<span className="text-sm absolute top-1 ml-6">{user ? totalAmount : null}</span>
+							<span className="text-sm absolute top-1 ml-7">{user ? totalAmount : null}</span>
 						</NavLink>
 					</div>
 				</nav>

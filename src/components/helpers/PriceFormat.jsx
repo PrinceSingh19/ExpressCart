@@ -6,7 +6,6 @@ export const convert = (convertedPrice) => {
 		style: "currency",
 		currency: "INR",
 		maximumFractionDigits: 0,
-		roundingIncrement: 5,
 	}).format(convertedPrice);
 };
 const PriceFormat = ({ price }) => {
