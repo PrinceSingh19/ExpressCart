@@ -56,12 +56,10 @@ const SignUP = () => {
 		validate,
 		onSubmit: async (values) => {
 			const { username, email, password } = values;
-			console.log("first");
 			try {
 				setLoading(true);
 				await createUserWithEmailAndPassword(auth, email, password)
 					.then((response) => {
-						console.log(response);
 						toast.success("Account created successfully");
 						setTimeout(() => {
 							navigate("/home");
@@ -75,7 +73,6 @@ const SignUP = () => {
 			} catch (err) {
 				setLoading(false);
 				toast.error("Please enter valid details");
-				console.log(err.message);
 			} finally {
 				setLoading(false);
 			}

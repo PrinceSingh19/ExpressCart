@@ -146,7 +146,6 @@ const Login = () => {
 						</small>
 
 						<button
-							onClick={() => console.log("first")}
 							disabled={loading}
 							type="submit"
 							className="text-white bg-emerald-600 mt-3  hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium w-1/2 rounded-2xl text-xl py-1 text-center flex items-center justify-center"
@@ -178,7 +177,7 @@ const Login = () => {
 				<div className="text-center  md:flex md:flex-col md:justify-center md:items-center">
 					<div className="h-[2px] w-full md:w-3/4  bg-slate-500"></div>
 					<div className="mt-3 md:flex md:flex-col">
-						Don't have account
+						<h3>Don't have account</h3>
 						<button
 							className="px-4 bg-blue-500 text-white rounded-md text-lg mt-1 mb-3"
 							onClick={() => navigate("/signup")}

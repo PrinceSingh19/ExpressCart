@@ -14,7 +14,6 @@ const DiscountCalculate = ({ discountPercentage, price }) => {
 	const convertedPrice = finalDiscount(discountPercentage, price);
 
 	const formatPrice = convert(convertedPrice); //converting the price in indian rupee format b/c currency recd from api is in dollars
-	console.log(formatPrice);
 	return <span>{formatPrice}</span>;
 };
 

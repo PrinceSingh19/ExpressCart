@@ -42,7 +42,6 @@ const AppReducer = (state, { type, payload }) => {
 
 		//setting state of exchange rates if query gets resoved
 		case "SET_EXCHANGE_RATE":
-			console.log(payload);
 			return {
 				...state,
 				exchange: payload,

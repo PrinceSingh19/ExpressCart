@@ -7,7 +7,6 @@ import { MdDelete } from "react-icons/md";
 
 const CartItem = () => {
 	const { cart, removeCart, setIncrease, setDecrease } = useCartContext();
-	console.log(cart);
 
 	return (
 		<div className=" border-2">
